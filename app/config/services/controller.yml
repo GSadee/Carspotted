@@ -1,0 +1,8 @@
+parameters:
+    app.controller.homepage.class: AppBundle\Controller\HomepageController
+
+services:
+    app.controller.homepage:
+        class: '%app.controller.homepage.class%'
+        calls:
+            - [setContainer, ['@service_container']]
