@@ -2,9 +2,14 @@
     "name": "sadowskigp/carspotted",
     "license": "proprietary",
     "type": "project",
+    "authors": [
+        {
+            "name": "Grzegorz Sadowski"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "AppBundle\\": "src/AppBundle/"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -12,7 +17,7 @@
         ]
     },
     "require": {
-        "php": ">=5.3.9",
+        "php": "^5.6|^7.0",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
@@ -23,6 +28,7 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
+        "phpspec/phpspec": "^2.4",
         "sensio/generator-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.7"
     },
