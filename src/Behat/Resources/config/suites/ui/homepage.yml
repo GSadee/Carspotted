@@ -1,0 +1,9 @@
+default:
+    suites:
+        ui_homepage:
+            contexts_as_services:
+                - app.behat.context.hook.doctrine_orm
+
+                - app.behat.context.ui.home
+            filters:
+                tags: "@homepage && @ui"
