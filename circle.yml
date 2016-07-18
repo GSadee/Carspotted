@@ -1,0 +1,28 @@
+machine:
+    php:
+        version: 7.0.0RC7
+    environment:
+        IMGUR_API_KEY: "4907fcd89e761c6b07eeb8292d5a9b2a"
+        BUILD_DIR: "etc/build"
+
+dependencies:
+    cache_directories:
+        - "bin"
+        - "vendor"
+    pre:
+        - echo "memory_limit = 4096M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
+        - curl http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.1.jar > selenium.jar
+        - "java -jar selenium.jar -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver > $BUILD_DIR/selenium.log 2>&1": { background: true }
+    override:
+        - composer install --prefer-dist --no-interaction
+
+database:
+    override:
+        - app/console doctrine:database:create --env=test
+        - "app/console server:run localhost:8088 --env=test > $BUILD_DIR/webserver.log 2>&1": { background: true }
+
+test:
+    override:
+        - bin/behat
+    post:
+        - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "etc/build/*.log"
