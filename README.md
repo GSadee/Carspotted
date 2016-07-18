@@ -8,7 +8,6 @@ Web application to share photos of exotic cars.
 
 * ``PHP 7.0 or higher``
 * ``Composer``
-* ``Bower (NodeJS)``
 
 ## Installation
 
