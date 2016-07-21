@@ -10,5 +10,5 @@ interface HomePageInterface extends SymfonyPageInterface
     /**
      * @return string
      */
-    public function getWelcome();
+    public function getTitle();
 }

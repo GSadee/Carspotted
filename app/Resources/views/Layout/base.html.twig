@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<!--
+	Archetype by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+-->
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% include ':Layout:_stylesheets.html.twig' %}
+</head>
+<body class="landing">
+
+{% include ':Layout:_header.html.twig' %}
+
+{% block content %}{% endblock %}
+
+{% include ':Layout:_footer.html.twig' %}
+
+</body>
+</html>

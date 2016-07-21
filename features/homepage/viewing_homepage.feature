@@ -7,4 +7,4 @@ Feature: Viewing homepage
     @ui
     Scenario: Viewing homepage
         When I view the homepage
-        Then I should see a text "Welcome"
+        Then I should see a text "Carspotted"

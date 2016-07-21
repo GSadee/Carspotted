@@ -8,12 +8,17 @@ Web application to share photos of exotic cars.
 
 * ``PHP 7.0 or higher``
 * ``Composer``
+* ``Bower (NodeJS)``
 
 ## Installation
 
 Run the following commands:
 
 ``` bash
+$ brew install node
+$ npm install -g bower
+$ bower install
+
 $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 ```
