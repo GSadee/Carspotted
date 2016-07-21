@@ -18,9 +18,9 @@ class HomePage extends SymfonyPage implements HomePageInterface
     /**
      * {@inheritdoc}
      */
-    public function getWelcome()
+    public function getTitle()
     {
-        return $this->getElement('welcome')->getHtml();
+        return $this->getElement('title')->getHtml();
     }
 
     /**
@@ -29,7 +29,7 @@ class HomePage extends SymfonyPage implements HomePageInterface
     protected function getDefinedElements()
     {
         return array_merge(parent::getDefinedElements(), [
-            'welcome' => 'div#welcome'
+            'title' => 'h1#logo'
         ]);
     }
 }

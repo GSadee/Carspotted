@@ -23,4 +23,7 @@
 
 /composer.phar
 
+/etc/build/*
+!/etc/build/.gitkeep
+
 /behat.yml

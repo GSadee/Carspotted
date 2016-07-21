@@ -38,7 +38,7 @@ final class HomeContext implements Context
     public function iShouldSeeText($text)
     {
         Assert::contains(
-            $this->homePage->getWelcome(),
+            $this->homePage->getTitle(),
             $text,
             'The text: %2$s cannot be found on page.'
         );

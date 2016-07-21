@@ -19,7 +19,7 @@ class HomepageController extends Controller
     public function indexAction(Request $request)
     {
         return $this->render(
-            ':homepage:index.html.twig',
+            ':Homepage:index.html.twig',
             [
                 'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             ]
