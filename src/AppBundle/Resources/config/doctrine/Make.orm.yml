@@ -1,0 +1,10 @@
+AppBundle\Entity\Make:
+    type: entity
+    table: make
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
