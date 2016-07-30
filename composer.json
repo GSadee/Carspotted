@@ -28,6 +28,7 @@
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/doctrine-migrations-bundle": "~1.0",
         "doctrine/orm": "^2.4.8",
+        "incenteev/composer-parameter-handler": "~2.0",
         "polishsymfonycommunity/symfony-mocker-container": "^1.0",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
