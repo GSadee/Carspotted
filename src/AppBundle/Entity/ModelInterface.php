@@ -7,7 +7,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-interface MakeInterface extends ResourceInterface, ModelAwareInterface
+interface ModelInterface extends ResourceInterface
 {
     /**
      * @return string
@@ -18,4 +18,14 @@ interface MakeInterface extends ResourceInterface, ModelAwareInterface
      * @param string $name
      */
     public function setName($name);
+
+    /**
+     * @return MakeInterface
+     */
+    public function getMake();
+
+    /**
+     * @param MakeInterface $make
+     */
+    public function setMake($make);
 }
