@@ -3,10 +3,13 @@
 namespace spec\AppBundle\Entity;
 
 use AppBundle\Entity\MakeInterface;
+use AppBundle\Entity\Model;
 use AppBundle\Entity\ModelInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
+ * @mixin Model
+ *
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
 class ModelSpec extends ObjectBehavior
