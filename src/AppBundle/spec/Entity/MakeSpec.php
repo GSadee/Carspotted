@@ -2,12 +2,15 @@
 
 namespace spec\AppBundle\Entity;
 
+use AppBundle\Entity\Make;
 use AppBundle\Entity\MakeInterface;
 use AppBundle\Entity\ModelInterface;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 
 /**
+ * @mixin Make
+ *
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
 class MakeSpec extends ObjectBehavior

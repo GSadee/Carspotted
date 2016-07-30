@@ -47,7 +47,7 @@ class Model implements ModelInterface
     }
 
     /**
-     * @return MakeInterface
+     * {@inheritdoc}
      */
     public function getMake()
     {
@@ -55,7 +55,7 @@ class Model implements ModelInterface
     }
 
     /**
-     * @param MakeInterface $make
+     * {@inheritdoc}
      */
     public function setMake($make)
     {
