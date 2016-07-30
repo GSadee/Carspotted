@@ -1,0 +1,17 @@
+AppBundle\Entity\Model:
+    type: entity
+    table: model
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+    manyToOne:
+        make:
+            targetEntity: AppBundle\Entity\Make
+            inversedBy: models
+            joinColumn:
+                name: make_id
+                referencedColumnName: id

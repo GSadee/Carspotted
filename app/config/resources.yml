@@ -3,3 +3,6 @@ sylius_resource:
         app.make:
             classes:
                 model: AppBundle\Entity\Make
+        app.model:
+            classes:
+                model: AppBundle\Entity\Model

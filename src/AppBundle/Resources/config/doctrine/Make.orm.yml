@@ -8,3 +8,8 @@ AppBundle\Entity\Make:
     fields:
         name:
             type: string
+    oneToMany:
+        models:
+            targetEntity: AppBundle\Entity\Model
+            mappedBy: make
+            cascade: ["persist", "remove"]

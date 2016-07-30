@@ -3,6 +3,8 @@
 namespace spec\AppBundle\Entity;
 
 use AppBundle\Entity\MakeInterface;
+use AppBundle\Entity\ModelInterface;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -34,5 +36,31 @@ class MakeSpec extends ObjectBehavior
     {
         $this->setName('Opel');
         $this->getName()->shouldReturn('Opel');
+    }
+
+    function it_initializes_model_collection_by_default()
+    {
+        $this->getModels()->shouldHaveType(Collection::class);
+    }
+
+    function its_models_are_mutable(Collection $models)
+    {
+        $this->setModels($models);
+        $this->getModels()->shouldReturn($models);
+    }
+
+    function it_adds_model(ModelInterface $model)
+    {
+        $this->addModel($model);
+
+        $this->hasModel($model)->shouldReturn(true);
+    }
+
+    function it_removes_model(ModelInterface $model)
+    {
+        $this->addModel($model);
+        $this->removeModel($model);
+
+        $this->hasModel($model)->shouldReturn(false);
     }
 }
