@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Hautelook\AliceBundle\HautelookAliceBundle(),
             new AppBundle\AppBundle(),
         );
 
