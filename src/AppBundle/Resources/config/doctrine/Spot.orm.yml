@@ -25,6 +25,7 @@ AppBundle\Entity\Spot:
         licensePlate:
             column: license_plate
             type: string
+            nullable: true
     manyToOne:
         make:
             targetEntity: AppBundle\Entity\Make

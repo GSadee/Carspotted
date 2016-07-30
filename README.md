@@ -22,3 +22,29 @@ $ bower install
 $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 ```
+
+## Database
+
+Run the following commands:
+
+``` bash
+$ app/console doctrine:database:create
+$ app/console doctrine:schema:create
+```
+
+## Fixtures
+
+Run the following commands:
+
+``` bash
+$ app/console hautelook_alice:doctrine:fixtures:load
+```
+
+
+## PHP Server
+
+Run the following commands:
+
+``` bash
+$ app/console server:run
+```
