@@ -1,0 +1,38 @@
+AppBundle\Entity\Spot:
+    type: entity
+    table: spot
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        description:
+            type: string
+        createdAt:
+            column: created_at
+            type: datetime
+        lat:
+            type: float
+        lng:
+            type: float
+        country:
+            type: string
+        city:
+            type: string
+        illegiblePlate:
+            column: illegible_plate
+            type: boolean
+        licensePlate:
+            column: license_plate
+            type: string
+    manyToOne:
+        make:
+            targetEntity: AppBundle\Entity\Make
+            joinColumn:
+                name: make_id
+                referencedColumnName: id
+        model:
+            targetEntity: AppBundle\Entity\Model
+            joinColumn:
+                name: model_id
+                referencedColumnName: id
