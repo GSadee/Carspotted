@@ -2,3 +2,11 @@ app_homepage:
     path: /
     defaults:
         _controller: app.controller.homepage:indexAction
+
+app_admin:
+    path: /admin
+    defaults:
+        _controller: app.controller.homepage:indexAction
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

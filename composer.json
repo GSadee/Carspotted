@@ -27,6 +27,7 @@
         "doctrine/doctrine-fixtures-bundle": "~2.3",
         "doctrine/doctrine-migrations-bundle": "~1.0",
         "doctrine/orm": "^2.4.8",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "hautelook/alice-bundle": "^1.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "polishsymfonycommunity/symfony-mocker-container": "^1.0",

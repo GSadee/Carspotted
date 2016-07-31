@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Hautelook\AliceBundle\HautelookAliceBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
         );
 
