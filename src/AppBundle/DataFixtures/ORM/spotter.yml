@@ -1,0 +1,21 @@
+AppBundle\Entity\Spotter:
+    spotter1:
+        username: admin
+        email: admin@carspotted.com
+        plainPassword: nimda
+        enabled: true
+        roles: ['ROLE_ADMIN']
+
+    spotter2:
+        username: sadee
+        email: sadee@carspotted.com
+        plainPassword: sadee
+        enabled: true
+        roles: ['ROLE_ADMIN']
+
+    spotter3:
+        username: user
+        email: user@carspotted.com
+        plainPassword: resu
+        enabled: true
+        roles: ['ROLE_USER']

@@ -1,0 +1,8 @@
+AppBundle\Entity\Spotter:
+    type: entity
+    table: spotter
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
