@@ -2,18 +2,23 @@ AppBundle\Entity\Model:
     model1:
         name: RS6
         make: @make1
+
     model2:
         name: RS7
         make: @make1
+
     model3:
         name: Focus RS
         make: @make2
+
     model4:
         name: NSX
         make: @make3
+
     model5:
         name: GT
         make: @make4
+
     model6:
         name: GT86
         make: @make5

@@ -32,8 +32,10 @@ AppBundle\Entity\Spot:
             joinColumn:
                 name: make_id
                 referencedColumnName: id
+                onDelete: "CASCADE"
         model:
             targetEntity: AppBundle\Entity\Model
             joinColumn:
                 name: model_id
                 referencedColumnName: id
+                onDelete: "CASCADE"

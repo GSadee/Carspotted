@@ -1,11 +1,15 @@
 AppBundle\Entity\Make:
     make1:
         name: Audi
+
     make2:
         name: Ford
+
     make3:
         name: Honda
+
     make4:
         name: Opel
+
     make5:
         name: Toyota
