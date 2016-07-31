@@ -15,3 +15,4 @@ AppBundle\Entity\Model:
             joinColumn:
                 name: make_id
                 referencedColumnName: id
+                onDelete: "CASCADE"
