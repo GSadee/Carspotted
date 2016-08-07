@@ -6,3 +6,8 @@ AppBundle\Entity\Spotter:
             type: integer
             generator:
                 strategy: AUTO
+    attributeOverride:
+        salt:
+            column: salt
+            type: string
+            nullable: true
