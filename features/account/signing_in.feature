@@ -5,21 +5,22 @@ Feature: Sign in to my account
     I want to be able to log in to my account
 
     Background:
-        Given there is a user "user@example.com" with password "resu"
+        Given there is a user "user" with an email "user@example.com" and a password "resu"
 
     @todo
     Scenario: Sign in with an email and a password
         Given I want to sign in
-        When I specify the username as "user@example.com"
+        When I specify the username as "user"
         And I specify the password as "resu"
-        And I log in
+        And I sign in
         Then I should be logged in
+        And I should be on the homepage
 
     @todo
     Scenario: Sign in with bad credentials
-        Given I want to log in
-        When I specify the username as "user@example.com"
+        Given I want to sign in
+        When I specify the username as "user"
         And I specify the password as "wrongpassword"
-        And I log in
-        Then I should be notified about bad credentials
+        And I sign in
+        Then I should be notified about invalid credentials
         And I should not be logged in
