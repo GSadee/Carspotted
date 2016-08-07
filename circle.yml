@@ -20,7 +20,7 @@ database:
     override:
         - app/console doctrine:database:create --env=test
         - app/console doctrine:schema:create --env=test
-        - "app/console server:run localhost:8088 --env=test > $BUILD_DIR/webserver.log 2>&1": { background: true }
+        - "app/console server:run localhost:8082 --env=test > $BUILD_DIR/webserver.log 2>&1": { background: true }
 
 test:
     override:

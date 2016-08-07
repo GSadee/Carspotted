@@ -1,0 +1,13 @@
+default:
+    suites:
+        ui_account:
+            contexts_as_services:
+                - app.behat.context.hook.doctrine_orm
+
+                - app.behat.context.setup.spotter
+
+                - app.behat.context.transform.shared_storage
+
+                - app.behat.context.ui.account
+            filters:
+                tags: "@account && @ui"

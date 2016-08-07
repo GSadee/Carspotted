@@ -1,0 +1,18 @@
+{% extends ':Layout:base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% set disableFlashes = true %}
+
+{% block title %}Carspotted{% endblock %}
+
+{% block content %}
+    <section id="main" class="wrapper">
+        <div class="inner">
+            <header class="major">
+                <h2>Registration confirmed</h2>
+                <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+            </header>
+        </div>
+    </section>
+{% endblock %}

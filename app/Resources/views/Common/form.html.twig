@@ -1,0 +1,13 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <div class="alert alert-danger">
+                {% for error in errors %}
+                    {{ error.message }}<br />
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}

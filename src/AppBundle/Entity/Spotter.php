@@ -25,5 +25,7 @@ class Spotter extends User implements SpotterInterface
     public function __construct()
     {
         parent::__construct();
+
+        $this->salt = null;
     }
 }

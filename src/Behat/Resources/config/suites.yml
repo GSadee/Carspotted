@@ -1,2 +1,3 @@
 imports:
+    - suites/ui/account.yml
     - suites/ui/homepage.yml
