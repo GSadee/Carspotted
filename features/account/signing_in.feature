@@ -7,7 +7,7 @@ Feature: Sign in to my account
     Background:
         Given there is a user "user" with an email "user@example.com" and a password "resu"
 
-    @todo
+    @ui @javascript
     Scenario: Sign in with an email and a password
         Given I want to sign in
         When I specify the username as "user"
@@ -16,7 +16,7 @@ Feature: Sign in to my account
         Then I should be logged in
         And I should be on the homepage
 
-    @todo
+    @ui @javascript
     Scenario: Sign in with bad credentials
         Given I want to sign in
         When I specify the username as "user"
