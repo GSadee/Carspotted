@@ -6,6 +6,8 @@ default:
 
                 - app.behat.context.setup.spotter
 
+                - app.behat.context.transform.shared_storage
+
                 - app.behat.context.ui.account
             filters:
                 tags: "@account && @ui"

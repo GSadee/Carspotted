@@ -4,7 +4,11 @@
     <services>
         <service id="app.behat.context.ui.account" class="Behat\Context\Ui\AccountContext" scope="scenario">
             <argument type="service" id="app.behat.page.account.login" />
+            <argument type="service" id="app.behat.page.account.register" />
+            <argument type="service" id="app.behat.page.account.register_confirmation" />
             <argument type="service" id="app.behat.page.home" />
+            <argument type="service" id="app.behat.current_page_resolver" />
+            <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />
         </service>
 

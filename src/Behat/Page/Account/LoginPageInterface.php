@@ -10,14 +10,14 @@ use Behat\Page\SymfonyPageInterface;
 interface LoginPageInterface extends SymfonyPageInterface
 {
     /**
-     * @param string $password
-     */
-    public function specifyPassword($password);
-
-    /**
      * @param string $username
      */
     public function specifyUsername($username);
+
+    /**
+     * @param string $password
+     */
+    public function specifyPassword($password);
 
     public function signIn();
 

@@ -3,8 +3,13 @@
 namespace Behat\Context\Ui;
 
 use Behat\Behat\Context\Context;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Page\Account\LoginPageInterface;
+use Behat\Page\Account\RegisterConfirmationPageInterface;
+use Behat\Page\Account\RegisterPageInterface;
 use Behat\Page\HomePageInterface;
+use Behat\Service\Resolver\CurrentPageResolverInterface;
+use Behat\Service\SharedStorageInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -18,18 +23,52 @@ final class AccountContext implements Context
     private $loginPage;
 
     /**
+     * @var RegisterPageInterface
+     */
+    private $registerPage;
+
+    /**
+     * @var RegisterConfirmationPageInterface
+     */
+    private $registerConfirmationPage;
+
+    /**
      * @var HomePageInterface
      */
     private $homePage;
 
     /**
-     * @param LoginPageInterface $loginPage
-     * @param HomePageInterface $homePage
+     * @var CurrentPageResolverInterface
      */
-    public function __construct(LoginPageInterface $loginPage, HomePageInterface $homePage)
-    {
+    private $currentPageResolver;
+
+    /**
+     * @var SharedStorageInterface
+     */
+    private $sharedStorage;
+
+    /**
+     * @param LoginPageInterface $loginPage
+     * @param RegisterPageInterface $registerPage
+     * @param RegisterConfirmationPageInterface $registerConfirmationPage
+     * @param HomePageInterface $homePage
+     * @param CurrentPageResolverInterface $currentPageResolver
+     * @param SharedStorageInterface $sharedStorage
+     */
+    public function __construct(
+        LoginPageInterface $loginPage,
+        RegisterPageInterface $registerPage,
+        RegisterConfirmationPageInterface $registerConfirmationPage,
+        HomePageInterface $homePage,
+        CurrentPageResolverInterface $currentPageResolver,
+        SharedStorageInterface $sharedStorage
+    ) {
         $this->loginPage = $loginPage;
+        $this->registerPage = $registerPage;
+        $this->registerConfirmationPage = $registerConfirmationPage;
         $this->homePage = $homePage;
+        $this->currentPageResolver = $currentPageResolver;
+        $this->sharedStorage = $sharedStorage;
     }
 
     /**
@@ -45,7 +84,10 @@ final class AccountContext implements Context
      */
     public function iSpecifyUsername($username)
     {
-        $this->loginPage->specifyUsername($username);
+        /** @var LoginPageInterface|RegisterPageInterface $currentPage */
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->loginPage, $this->registerPage]);
+
+        $currentPage->specifyUsername($username);
     }
 
     /**
@@ -53,7 +95,12 @@ final class AccountContext implements Context
      */
     public function iSpecifyPassword($password)
     {
-        $this->loginPage->specifyPassword($password);
+        /** @var LoginPageInterface|RegisterPageInterface $currentPage */
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->loginPage, $this->registerPage]);
+
+        $currentPage->specifyPassword($password);
+
+        $this->sharedStorage->set('password', $password);
     }
 
     /**
@@ -69,6 +116,8 @@ final class AccountContext implements Context
      */
     public function iShouldBeLoggedIn()
     {
+        $this->homePage->open();
+
         Assert::true(
             $this->homePage->hasLogoutButton(),
             'I should be able to sign out.'
@@ -105,6 +154,60 @@ final class AccountContext implements Context
         Assert::true(
             $this->loginPage->hasValidationErrorWith('Invalid credentials.'),
             'I should see validation error.'
+        );
+    }
+
+    /**
+     * @Given I want to register a new account
+     */
+    public function iWantToRegisterNewAccount()
+    {
+        $this->registerPage->open();
+    }
+
+    /**
+     * @When I specify the email as :email
+     */
+    public function iSpecifyEmail($email)
+    {
+        $this->registerPage->specifyEmail($email);
+    }
+
+    /**
+     * @When /^I confirm (this password)$/
+     */
+    public function iConfirmThisPassword($password)
+    {
+        $this->registerPage->confirmPassword($password);
+    }
+
+    /**
+     * @Given I register this account
+     */
+    public function iRegisterThisAccount()
+    {
+        $this->registerPage->register();
+    }
+
+    /**
+     * @Then I should be on the register confirmation page
+     */
+    public function iShouldBeOnTheRegisterConfirmationPage()
+    {
+        Assert::true(
+            $this->registerConfirmationPage->isOpen(),
+            'I should be on the register confirmation page, but I am not.'
+        );
+    }
+
+    /**
+     * @Then /^I should be notified that new account has been successfully created$/
+     */
+    public function iShouldBeNotifiedThatNewAccountHasBeenSuccessfullyCreated()
+    {
+        Assert::true(
+            $this->registerConfirmationPage->hasText('your account is now activated.'),
+            'I should see register confirmation.'
         );
     }
 }
