@@ -1,0 +1,35 @@
+{% extends ':Layout:base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}Carspotted{% endblock %}
+
+{% block content %}
+    <section id="main" class="wrapper">
+        <div class="inner">
+            <header class="major">
+                <h2>Registration</h2>
+            </header>
+
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register')}) }}
+
+            <label for="email">{{ 'form.email'|trans }}</label>
+            {{ form(form.email) }}
+
+            <label for="username">{{ 'form.username'|trans }}</label>
+            {{ form(form.username) }}
+
+            <label for="plainPassword.first">{{ 'form.password'|trans }}</label>
+            {{ form(form.plainPassword.first) }}
+
+            <label for="plainPassword.second">{{ 'form.password_confirmation'|trans }}</label>
+            {{ form(form.plainPassword.second) }}
+
+            {{ form_widget(form) }}
+
+            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
