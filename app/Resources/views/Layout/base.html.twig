@@ -1,9 +1,12 @@
-<!DOCTYPE HTML>
 <!--
 	Archetype by Pixelarity
 	pixelarity.com @pixelarity
 	License: pixelarity.com/license
 -->
+
+{% import ':Layout/Macro:header.html.twig' as macros %}
+
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
@@ -15,7 +18,11 @@
 </head>
 <body class="landing">
 
-{% include ':Layout:_header.html.twig' %}
+{% if isIndex is not defined %}
+    {% set isIndex = false %}
+{% endif %}
+
+{{ macros.header(isIndex) }}
 
 {% block content %}{% endblock %}
 
