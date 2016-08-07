@@ -20,9 +20,13 @@
 
 {% if isIndex is not defined %}
     {% set isIndex = false %}
+{% else %}
+    {% include ':Layout:_banner.html.twig' %}
 {% endif %}
 
 {{ macros.header(isIndex) }}
+
+{% include ':Layout:_flashes.html.twig' %}
 
 {% block content %}{% endblock %}
 

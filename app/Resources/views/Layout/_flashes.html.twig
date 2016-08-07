@@ -1,0 +1,14 @@
+{% if app.session.flashbag.has('success') or app.session.flashbag.has('error') or app.session.flashbag.has('info') %}
+    <section id="main" class="wrapper">
+        <div class="inner">
+            {% for type in ['success', 'error', 'info'] %}
+                {% for message in app.session.flashbag.get(type) %}
+                    {% set type = type == 'error' ? 'danger' : type %}
+                    <div class="alert alert-{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}
