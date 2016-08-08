@@ -57,4 +57,17 @@ class RegisterPage extends SymfonyPage implements RegisterPageInterface
     {
         $this->getDocument()->pressButton('Register');
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefinedElements()
+    {
+        return array_merge(parent::getDefinedElements(), [
+            'email' => '#fos_user_registration_form_email',
+            'password' => '#fos_user_registration_form_plainPassword_first',
+            'confirmation_password' => '#fos_user_registration_form_plainPassword_second',
+            'username' => '#fos_user_registration_form_username',
+        ]);
+    }
 }
