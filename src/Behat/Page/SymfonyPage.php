@@ -12,6 +12,7 @@
 namespace Behat\Page;
 
 use Behat\Mink\Element\NodeElement;
+use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RequestContext;
@@ -43,6 +44,20 @@ abstract class SymfonyPage extends Page implements SymfonyPageInterface
      * {@inheritdoc}
      */
     abstract public function getRouteName();
+
+    /**
+     * {@inheritdoc}
+     */
+    public function checkValidationMessageFor($element, $message)
+    {
+        $errorLabel = $this->getElement($element)->getParent()->find('css', '.alert');
+
+        if (null === $errorLabel) {
+            throw new ElementNotFoundException($this->getSession(), 'Validation message', 'css', '.alert');
+        }
+
+        return $message === $errorLabel->getText();
+    }
 
     /**
      * @param array $urlParameters

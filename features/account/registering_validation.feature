@@ -4,7 +4,7 @@ Feature: Account registration validation
     As a Visitor
     I want to be prevented from creating an account without required fields
 
-    @todo
+    @ui
     Scenario: Trying to register a new account with email that has been already used
         Given there is a user "user" with an email "user@example.com" and a password "resu"
         And I want to register a new account
@@ -16,7 +16,7 @@ Feature: Account registration validation
         Then I should be notified that the email is already used
         And I should not be logged in
 
-    @todo
+    @ui
     Scenario: Trying to register a new account without specifying username
         Given I want to register a new account
         When I do not specify the username
@@ -27,7 +27,7 @@ Feature: Account registration validation
         Then I should be notified that the username is required
         And I should not be logged in
 
-    @todo
+    @ui
     Scenario: Trying to register a new account without specifying email
         Given I want to register a new account
         When I specify the username as "Harvey"
@@ -38,7 +38,7 @@ Feature: Account registration validation
         Then I should be notified that the email is required
         And I should not be logged in
 
-    @todo
+    @ui
     Scenario: Trying to register a new account without specifying password
         Given I want to register a new account
         When I specify the username as "Harvey"
@@ -48,7 +48,7 @@ Feature: Account registration validation
         Then I should be notified that the password is required
         And I should not be logged in
 
-    @todo
+    @ui
     Scenario: Trying to register a new account without confirming password
         Given I want to register a new account
         When I specify the username as "Harvey"

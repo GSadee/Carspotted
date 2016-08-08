@@ -2,14 +2,14 @@
 
 namespace Behat\Context\Ui;
 
-use Behat\Behat\Context\Context;
+use Behat\Context\BaseContext;
 use Behat\Page\HomePageInterface;
 use Webmozart\Assert\Assert;
 
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-final class HomeContext implements Context
+final class HomeContext extends BaseContext
 {
     /**
      * @var HomePageInterface
