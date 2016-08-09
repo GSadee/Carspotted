@@ -1,4 +1,4 @@
-@account
+@registering
 Feature: Account registration
     In order to add new photos
     As a Visitor

@@ -2,18 +2,22 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="app.behat.context.ui.account" class="Behat\Context\Ui\AccountContext" scope="scenario">
-            <argument type="service" id="app.behat.page.account.login" />
-            <argument type="service" id="app.behat.page.account.register" />
-            <argument type="service" id="app.behat.page.account.register_confirmation" />
+        <service id="app.behat.context.ui.home" class="Behat\Context\Ui\HomeContext" scope="scenario">
             <argument type="service" id="app.behat.page.home" />
-            <argument type="service" id="app.behat.current_page_resolver" />
-            <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />
         </service>
 
-        <service id="app.behat.context.ui.home" class="Behat\Context\Ui\HomeContext" scope="scenario">
+        <service id="app.behat.context.ui.login" class="Behat\Context\Ui\LoginContext" scope="scenario">
+            <argument type="service" id="app.behat.page.account.login" />
             <argument type="service" id="app.behat.page.home" />
+            <tag name="app.behat.context" />
+        </service>
+
+        <service id="app.behat.context.ui.register" class="Behat\Context\Ui\RegisterContext" scope="scenario">
+            <argument type="service" id="app.behat.page.account.register" />
+            <argument type="service" id="app.behat.page.account.register_confirmation" />
+            <argument type="service" id="app.behat.page.home" />
+            <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />
         </service>
     </services>

@@ -33,6 +33,17 @@ final class HomeContext extends BaseContext
     }
 
     /**
+     * @Then I should be on the homepage
+     */
+    public function iShouldBeOnTheHomepage()
+    {
+        Assert::true(
+            $this->homePage->isOpen(),
+            'I should be on the homepage, but I am not.'
+        );
+    }
+
+    /**
      * @Then I should see a text :text
      */
     public function iShouldSeeText($text)
