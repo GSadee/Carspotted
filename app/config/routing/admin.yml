@@ -1,0 +1,12 @@
+app_admin:
+    path: /admin
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /admin/dashboard
+        permanent: true
+
+app_admin_dashboard:
+    path: /admin/dashboard
+    defaults:
+        _controller: app.controller.homepage:indexAction
+        template: :Admin/Dashboard:index.html.twig
