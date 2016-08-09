@@ -1,0 +1,15 @@
+button.close {
+    box-shadow: none;
+    height: 1.25em;
+}
+
+section#flashes.wrapper
+{
+    padding: 0;
+}
+
+section#flashes.wrapper > div > div.alert
+{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
