@@ -7,7 +7,7 @@ Feature: Viewing dashboard
     Background:
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Viewing dashboard
-        When I view the dashboard
+        When I view the admin dashboard
         Then I should see a text "Dashboard"
