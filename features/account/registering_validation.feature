@@ -1,4 +1,4 @@
-@account
+@registering
 Feature: Account registration validation
     In order to avoid making mistakes when registering an account
     As a Visitor

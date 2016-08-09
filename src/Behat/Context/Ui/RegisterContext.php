@@ -3,24 +3,17 @@
 namespace Behat\Context\Ui;
 
 use Behat\Context\BaseContext;
-use Behat\Page\Account\LoginPageInterface;
 use Behat\Page\Account\RegisterConfirmationPageInterface;
 use Behat\Page\Account\RegisterPageInterface;
 use Behat\Page\HomePageInterface;
-use Behat\Service\Resolver\CurrentPageResolverInterface;
 use Behat\Service\SharedStorageInterface;
 use Webmozart\Assert\Assert;
 
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-final class AccountContext extends BaseContext
+final class RegisterContext extends BaseContext
 {
-    /**
-     * @var LoginPageInterface
-     */
-    private $loginPage;
-
     /**
      * @var RegisterPageInterface
      */
@@ -37,45 +30,26 @@ final class AccountContext extends BaseContext
     private $homePage;
 
     /**
-     * @var CurrentPageResolverInterface
-     */
-    private $currentPageResolver;
-
-    /**
      * @var SharedStorageInterface
      */
     private $sharedStorage;
 
     /**
-     * @param LoginPageInterface $loginPage
      * @param RegisterPageInterface $registerPage
      * @param RegisterConfirmationPageInterface $registerConfirmationPage
      * @param HomePageInterface $homePage
-     * @param CurrentPageResolverInterface $currentPageResolver
      * @param SharedStorageInterface $sharedStorage
      */
     public function __construct(
-        LoginPageInterface $loginPage,
         RegisterPageInterface $registerPage,
         RegisterConfirmationPageInterface $registerConfirmationPage,
         HomePageInterface $homePage,
-        CurrentPageResolverInterface $currentPageResolver,
         SharedStorageInterface $sharedStorage
     ) {
-        $this->loginPage = $loginPage;
         $this->registerPage = $registerPage;
         $this->registerConfirmationPage = $registerConfirmationPage;
         $this->homePage = $homePage;
-        $this->currentPageResolver = $currentPageResolver;
         $this->sharedStorage = $sharedStorage;
-    }
-
-    /**
-     * @Given I want to sign in
-     */
-    public function iWantToSignIn()
-    {
-        $this->loginPage->open();
     }
 
     /**
@@ -84,10 +58,7 @@ final class AccountContext extends BaseContext
      */
     public function iSpecifyUsername($username = null)
     {
-        /** @var LoginPageInterface|RegisterPageInterface $currentPage */
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->loginPage, $this->registerPage]);
-
-        $currentPage->specifyUsername($username);
+        $this->registerPage->specifyUsername($username);
     }
 
     /**
@@ -96,66 +67,9 @@ final class AccountContext extends BaseContext
      */
     public function iSpecifyPassword($password = null)
     {
-        /** @var LoginPageInterface|RegisterPageInterface $currentPage */
-        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->loginPage, $this->registerPage]);
-
-        $currentPage->specifyPassword($password);
+        $this->registerPage->specifyPassword($password);
 
         $this->sharedStorage->set('password', $password);
-    }
-
-    /**
-     * @When I sign in
-     */
-    public function iSignIn()
-    {
-        $this->loginPage->signIn();
-    }
-
-    /**
-     * @Then I should be logged in
-     */
-    public function iShouldBeLoggedIn()
-    {
-        $this->homePage->open();
-
-        Assert::true(
-            $this->homePage->hasLogoutButton(),
-            'I should be able to sign out.'
-        );
-    }
-
-    /**
-     * @Then I should not be logged in
-     */
-    public function iShouldNotBeLoggedIn()
-    {
-        Assert::false(
-            $this->homePage->hasLogoutButton(),
-            'I should not be signed in.'
-        );
-    }
-
-    /**
-     * @Then I should be on the homepage
-     */
-    public function iShouldBeOnTheHomepage()
-    {
-        Assert::true(
-            $this->homePage->isOpen(),
-            'I should be on the homepage, but I am not.'
-        );
-    }
-
-    /**
-     * @Then I should be notified about invalid credentials
-     */
-    public function iShouldBeNotifiedAboutBadCredentials()
-    {
-        Assert::true(
-            $this->loginPage->hasValidationErrorWith('Invalid credentials.'),
-            'I should see validation error.'
-        );
     }
 
     /**
@@ -253,5 +167,27 @@ final class AccountContext extends BaseContext
     public function iShouldBeNotifiedThatThePasswordDoNotMatch()
     {
         $this->assertFieldValidationMessage($this->registerPage, 'password', 'The entered passwords don\'t match');
+    }
+
+    /**
+     * @Then I should be logged in
+     */
+    public function iShouldBeLoggedIn()
+    {
+        Assert::true(
+            $this->homePage->hasLogoutButton(),
+            'I should be able to sign out.'
+        );
+    }
+
+    /**
+     * @Then I should not be logged in
+     */
+    public function iShouldNotBeLoggedIn()
+    {
+        Assert::false(
+            $this->homePage->hasLogoutButton(),
+            'I should not be signed in.'
+        );
     }
 }

@@ -1,0 +1,5 @@
+app_homepage:
+    path: /
+    defaults:
+        _controller: app.controller.homepage:indexAction
+        template: :Homepage:index.html.twig

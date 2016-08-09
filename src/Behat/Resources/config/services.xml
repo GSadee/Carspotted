@@ -26,6 +26,13 @@
             <argument>%mink.parameters%</argument>
         </service>
 
+        <service id="app.behat.security" class="Behat\Service\SecurityService" scope="scenario" public="false">
+            <argument type="service" id="fos_user.user_manager" container="symfony" />
+            <argument type="service" id="session" container="symfony" />
+            <argument type="service" id="app.behat.cookie_setter" />
+            <argument>user</argument>
+        </service>
+
         <service id="app.behat.table_accessor" class="%app.behat.table_accessor.class%" public="false" />
 
         <service id="app.behat.notification_accessor" class="%app.behat.notification_accessor.class%" scope="scenario" public="false">

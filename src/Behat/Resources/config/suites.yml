@@ -1,3 +1,5 @@
 imports:
-    - suites/ui/account.yml
+    - suites/admin/dashboard.yml
     - suites/ui/homepage.yml
+    - suites/ui/registering.yml
+    - suites/ui/signing_in.yml

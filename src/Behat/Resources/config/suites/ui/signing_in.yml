@@ -1,6 +1,6 @@
 default:
     suites:
-        ui_account:
+        ui_signing_in:
             contexts_as_services:
                 - app.behat.context.hook.doctrine_orm
 
@@ -8,6 +8,7 @@ default:
 
                 - app.behat.context.transform.shared_storage
 
-                - app.behat.context.ui.account
+                - app.behat.context.ui.home
+                - app.behat.context.ui.login
             filters:
-                tags: "@account && @ui"
+                tags: "@signing_in && @ui"

@@ -1,12 +1,8 @@
-app_homepage:
-    path: /
-    defaults:
-        _controller: app.controller.homepage:indexAction
+app_ui:
+    resource: "routing/ui.yml"
 
 app_admin:
-    path: /admin
-    defaults:
-        _controller: app.controller.homepage:indexAction
+    resource: "routing/admin.yml"
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

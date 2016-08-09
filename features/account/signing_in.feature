@@ -1,4 +1,4 @@
-@account
+@signing_in
 Feature: Sign in to my account
     In order to view my photos
     As a Visitor

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% include ':Admin/Layout:_stylesheets.html.twig' %}
+</head>
+<body>
+
+{% include ':Admin/Layout:_header.html.twig' %}
+
+<div class="container-fluid">
+    {% block content %}{% endblock %}
+</div>
+
+{% include ':Admin/Layout:_javascripts.html.twig' %}
+
+</body>
+</html>
