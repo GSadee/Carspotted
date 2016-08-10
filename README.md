@@ -3,6 +3,7 @@
 Web application to share photos of exotic cars.
 
 [![CircleCI](https://circleci.com/gh/GSadee/Carspotted.svg?style=shield&circle-token=91ac786e9963de2e4b9699032829887df1af83dc)](https://circleci.com/gh/GSadee/Carspotted)
+[![TravisCI](https://travis-ci.com/GSadee/Carspotted.svg?token=Fb9TazHQiTMgSpZsJ5Km&branch=master)](https://travis-ci.com/GSadee/Carspotted)
 
 ## Requirements
 
