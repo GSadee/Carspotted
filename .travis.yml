@@ -1,0 +1,37 @@
+language: php
+
+php:
+  - 7.0
+
+env:
+    global:
+        - BUILD_DIR=etc/build
+
+cache:
+    directories:
+        - bin
+        - vendor
+
+before_install:
+    - phpenv config-rm xdebug.ini || true
+    - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
+    - composer self-update
+
+install:
+    - composer install --no-interaction --no-scripts --prefer-dist
+    - composer run-script travis-build --no-interaction
+
+before_script:
+    - app/console doctrine:database:create --env=test --no-interaction
+    - app/console doctrine:schema:create --env=test --no-interaction
+
+script:
+   - bin/phpspec run --format=pretty
+   - bin/behat
+
+after_failure:
+    - export IMGUR_API_KEY=4907fcd89e761c6b07eeb8292d5a9b2a
+
+    - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "$BUILD_DIR/*.log"
+    - vendor/lakion/mink-debug-extension/travis/tools/upload-screenshots "$BUILD_DIR/*.png"
