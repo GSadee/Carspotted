@@ -38,7 +38,9 @@
         "sylius/grid-bundle": "^1.0@dev",
         "sylius/registry": "^1.0@dev",
         "symfony/monolog-bundle": "~2.4",
-        "symfony/swiftmailer-bundle": "~2.3"
+        "symfony/swiftmailer-bundle": "~2.3",
+        "ocramius/proxy-manager": "^1.0",
+        "ocramius/package-versions": "^1.0"
     },
     "require-dev": {
         "behat/behat": "~3.0",
