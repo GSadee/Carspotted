@@ -24,6 +24,7 @@ database:
 
 test:
     override:
+        - bin/phpspec run --format=pretty
         - bin/behat
     post:
         - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "etc/build/*.log"
