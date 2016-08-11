@@ -1,0 +1,18 @@
+app:
+    administration_panel: Administration panel
+    dashboard: Dashboard
+    home: Home
+    id: Id
+    log_out: Log out
+    makes: Makes
+    manage_makes: Manage makes
+    manage_models: Manage models
+    manage_spots: Manage spots
+    manage_spotters: Manage spotters
+    models: Models
+    name: Name
+    recent_spots: Recent spots
+    register: register
+    sign_in: Sign in
+    spots: Spots
+    spotters: Spotters

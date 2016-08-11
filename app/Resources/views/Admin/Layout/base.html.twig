@@ -13,7 +13,11 @@
 {% include ':Admin/Layout:_header.html.twig' %}
 
 <div class="container-fluid">
-    {% block content %}{% endblock %}
+    <div class="row">
+        {% include ':Admin/Layout:_navbar.html.twig' %}
+
+        {% block content %}{% endblock %}
+    </div>
 </div>
 
 {% include ':Admin/Layout:_javascripts.html.twig' %}
