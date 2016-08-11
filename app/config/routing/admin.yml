@@ -10,3 +10,7 @@ app_admin_dashboard:
     defaults:
         _controller: app.controller.homepage:indexAction
         template: :Admin/Dashboard:index.html.twig
+
+app_admin_make:
+    resource: "admin/make.yml"
+    prefix: /admin

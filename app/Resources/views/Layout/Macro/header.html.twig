@@ -5,6 +5,10 @@
             <ul>
                 <li><a href="{{ path('app_homepage') }}">Home</a></li>
                 {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('app_admin_dashboard') }}">Administration panel</a></li>
+                {% endif %}
+
+                {% if is_granted('ROLE_USER') %}
                     <li id="logout"><a href="{{ path('fos_user_security_logout') }}">Log out</a></li>
                 {% else %}
                     <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>

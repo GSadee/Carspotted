@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: resources.yml }
+    - { resource: grids.yml }
 
 parameters:
     locale: en

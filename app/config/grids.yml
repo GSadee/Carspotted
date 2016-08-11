@@ -1,0 +1,12 @@
+imports:
+    - { resource: grids/admin/make.yml }
+
+sylius_grid:
+    drivers:
+        - doctrine/orm
+    templates:
+        action:
+            create: :Grid/Action:create.html.twig
+            delete: :Grid/Action:delete.html.twig
+            show: :Grid/Action:show.html.twig
+            update: :Grid/Action:update.html.twig

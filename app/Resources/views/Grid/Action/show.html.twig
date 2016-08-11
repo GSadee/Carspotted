@@ -1,0 +1,3 @@
+{% import ':Macro:buttons.html.twig' as buttons %}
+
+{{ buttons.show(path(grid.requestConfiguration.getRouteName('show'), {'id': data.id})) }}

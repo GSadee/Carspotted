@@ -1,6 +1,10 @@
 app:
+    actions: Actions
     administration_panel: Administration panel
+    create: Create
     dashboard: Dashboard
+    delete: Delete
+    edit: Edit
     home: Home
     id: Id
     log_out: Log out
@@ -11,8 +15,11 @@ app:
     manage_spotters: Manage spotters
     models: Models
     name: Name
+    no_results_to_display: No results to display
     recent_spots: Recent spots
     register: register
+    show: Show
     sign_in: Sign in
     spots: Spots
     spotters: Spotters
+    update: Update

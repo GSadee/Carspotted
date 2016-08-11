@@ -1,0 +1,15 @@
+app_admin_make:
+    resource: |
+        alias: app.make
+        section: admin
+        templates: :Admin/Crud
+        except: ['show']
+        redirect: index
+        grid: app_admin_make
+        permission: true
+        vars:
+            all:
+                subheader: app.manage_makes
+                templates:
+                    form: :Admin/Make:_form.html.twig
+    type: sylius.resource

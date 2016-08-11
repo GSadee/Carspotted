@@ -1,0 +1,25 @@
+sylius_grid:
+    grids:
+        app_admin_make:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\Make
+            sorting:
+                name: asc
+            fields:
+                id:
+                    type: string
+                    label: app.id
+                name:
+                    type: string
+                    label: app.name
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
