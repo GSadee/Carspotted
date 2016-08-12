@@ -1,0 +1,12 @@
+default:
+    suites:
+        admin_managing_makes:
+            contexts_as_services:
+                - app.behat.context.hook.doctrine_orm
+
+                - app.behat.context.setup.make
+                - app.behat.context.setup.security
+
+                - app.behat.context.admin.managing_makes
+            filters:
+                tags: "@managing_makes && @ui"

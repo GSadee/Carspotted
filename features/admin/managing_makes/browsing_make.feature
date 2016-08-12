@@ -10,7 +10,7 @@ Feature: Browsing makes
         And there is also a make "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Browsing makes
         When I want to browse makes
         Then I should see 3 makes in the list
