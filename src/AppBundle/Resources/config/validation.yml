@@ -3,3 +3,12 @@ AppBundle\Entity\Make:
         name:
             - NotBlank:
                 message: app.make.name.not_blank
+
+AppBundle\Entity\Model:
+    properties:
+        name:
+            - NotBlank:
+                message: app.model.name.not_blank
+        make:
+            - NotBlank:
+                message: app.model.make.not_blank

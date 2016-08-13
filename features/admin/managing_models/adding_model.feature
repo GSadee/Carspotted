@@ -8,11 +8,11 @@ Feature: Adding a new model
         Given there is a make "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Adding a new model
         When I want to add a new model
         And I specify the name as "Insignia"
-        And I choose "Opel" as a model
+        And I choose "Opel" as a make
         And I add it
         Then I should be notified that it has been successfully created
         And the model "Insignia" should appear in the registry

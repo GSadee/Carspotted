@@ -8,7 +8,7 @@ Feature: Deleting a model
         Given there is a model "Insignia" made by "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Deleting the model
         When I delete the model "Insignia"
         Then I should be notified that it has been successfully deleted

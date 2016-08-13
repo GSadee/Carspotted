@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="app.behat.page.admin.model.create.class">Behat\Page\Admin\Model\CreatePage</parameter>
+        <parameter key="app.behat.page.admin.model.index.class">%app.behat.page.admin.crud.index.class%</parameter>
+        <parameter key="app.behat.page.admin.model.update.class">Behat\Page\Admin\Model\UpdatePage</parameter>
+    </parameters>
+
+    <services>
+        <service id="app.behat.page.admin.model.create" class="%app.behat.page.admin.model.create.class%" parent="app.behat.page.admin.crud.create" scope="scenario" public="false">
+            <argument type="string">model</argument>
+        </service>
+        <service id="app.behat.page.admin.model.index" class="%app.behat.page.admin.model.index.class%" parent="app.behat.page.admin.crud.index" scope="scenario" public="false">
+            <argument type="string">model</argument>
+        </service>
+        <service id="app.behat.page.admin.model.update" class="%app.behat.page.admin.model.update.class%" parent="app.behat.page.admin.crud.update" scope="scenario" public="false">
+            <argument type="string">model</argument>
+        </service>
+    </services>
+</container>

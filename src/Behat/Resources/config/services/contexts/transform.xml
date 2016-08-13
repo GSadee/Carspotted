@@ -7,6 +7,11 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.transform.model" class="Behat\Context\Transform\ModelContext" scope="scenario">
+            <argument type="service" id="app.repository.model" container="symfony" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.transform.shared_storage" class="Behat\Context\Transform\SharedStorageContext" scope="scenario">
             <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />

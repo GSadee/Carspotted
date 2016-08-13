@@ -9,7 +9,7 @@ Feature: Editing a model
         And there is a make "Vauxhall"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Renaming the model
         When I want to modify the model "Insignia"
         And I rename it to "Astra"
@@ -17,7 +17,7 @@ Feature: Editing a model
         Then I should be notified that it has been successfully edited
         And this model name should be "Astra"
 
-    @todo
+    @ui
     Scenario: Changing the model make
         When I want to modify the model "Insignia"
         And I change a make to "Vauxhall"

@@ -1,0 +1,15 @@
+app_admin_model:
+    resource: |
+        alias: app.model
+        section: admin
+        templates: :Admin/Crud
+        except: ['show']
+        redirect: update
+        grid: app_admin_model
+        permission: true
+        vars:
+            all:
+                subheader: app.manage_models
+                templates:
+                    form: :Admin/Model:_form.html.twig
+    type: sylius.resource

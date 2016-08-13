@@ -11,11 +11,13 @@ app:
     home: Home
     id: Id
     log_out: Log out
+    make: Make
     makes: Makes
     manage_makes: Manage makes
     manage_models: Manage models
     manage_spots: Manage spots
     manage_spotters: Manage spotters
+    model: Model
     models: Models
     name: Name
     new_make: New make
@@ -26,6 +28,8 @@ app:
     save_changes: Save changes
     show: Show
     sign_in: Sign in
+    spot: Spot
     spots: Spots
+    spotter: Spotter
     spotters: Spotters
     update: Update

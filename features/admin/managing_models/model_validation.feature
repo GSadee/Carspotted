@@ -9,23 +9,15 @@ Feature: Model validation
         And there is a make "Audi"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Trying to add a new model without specifying its name
         When I want to add a new model
         And I do not specify the name
-        And I choose "Audi" as a model
+        And I choose "Audi" as a make
         And I try to add it
         Then I should be notified that name is required
 
-    @todo
-    Scenario: Trying to add a new model without choosing its make
-        When I want to add a new model
-        And I specify the name as "S8"
-        And I do not choose a make
-        And I try to add it
-        Then I should be notified that make is required
-
-    @todo
+    @ui
     Scenario: Trying to remove name from an existing model
         When I want to modify the model "Insignia"
         And I remove its name

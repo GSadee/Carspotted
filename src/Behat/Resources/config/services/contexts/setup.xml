@@ -11,6 +11,17 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.setup.model" class="Behat\Context\Setup\ModelContext" scope="scenario">
+            <tag name="app.behat.context" />
+            <argument type="service" id="app.behat.shared_storage" />
+            <argument type="service" id="app.repository.model" container="symfony" />
+            <argument type="service" id="app.factory.model" container="symfony" />
+            <argument type="service" id="app.manager.model" container="symfony" />
+            <argument type="service" id="app.repository.make" container="symfony" />
+            <argument type="service" id="app.factory.make" container="symfony" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.setup.security" class="Behat\Context\Setup\SecurityContext" scope="scenario">
             <argument type="service" id="app.behat.shared_storage" />
             <argument type="service" id="app.behat.security" />

@@ -6,10 +6,10 @@ Feature: Browsing models
 
     Background:
         Given there is a model "Insignia" made by "Opel"
-        And there is a model "Accord" made by "Honda"
+        And there is also a model "Accord" made by "Honda"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Browsing models
         When I want to browse models
         Then I should see 2 models in the list

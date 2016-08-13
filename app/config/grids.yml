@@ -1,5 +1,6 @@
 imports:
     - { resource: grids/admin/make.yml }
+    - { resource: grids/admin/model.yml }
 
 sylius_grid:
     drivers:
