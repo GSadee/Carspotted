@@ -7,7 +7,6 @@ use Behat\Context\BaseContext;
 use Behat\Page\Admin\Crud\IndexPageInterface;
 use Behat\Page\Admin\Make\CreatePageInterface;
 use Behat\Page\Admin\Make\UpdatePageInterface;
-use Behat\Page\SymfonyPageInterface;
 use Behat\Service\Resolver\CurrentPageResolverInterface;
 use Webmozart\Assert\Assert;
 
