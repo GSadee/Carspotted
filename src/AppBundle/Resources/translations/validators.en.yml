@@ -1,0 +1,4 @@
+app:
+    make:
+        name:
+            not_blank: Please enter make name.

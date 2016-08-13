@@ -1,0 +1,42 @@
+{% macro default(url, message, type) %}
+    <a href="{{ url }}" class="btn btn-{{ type }}" role="button">{{ message }}</a>
+{% endmacro %}
+
+{% macro show(url, message) %}
+    {% import _self as buttons %}
+
+    {% if message is empty %}
+        {% set message = 'app.show'|trans %}
+    {% endif %}
+
+    {{ buttons.default(url, message, 'info') }}
+{% endmacro %}
+
+{% macro create(url, message, id) %}
+    {% import _self as buttons %}
+
+    {% if message is empty %}
+        {% set message = 'app.create'|trans %}
+    {% endif %}
+
+    {{ buttons.default(url, message, 'success') }}
+{% endmacro %}
+
+{% macro edit(url, message) %}
+    {% import _self as buttons %}
+
+    {% if message is empty %}
+        {% set message = 'app.edit'|trans %}
+    {% endif %}
+
+    {{ buttons.default(url, message, 'primary') }}
+{% endmacro %}
+
+{% macro delete(url, message) %}
+    <form action="{{ url }}" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger" type="submit" data-requires-confirmation>
+            {{ message is empty ? 'app.delete'|trans : message }}
+        </button>
+    </form>
+{% endmacro %}

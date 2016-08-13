@@ -6,5 +6,18 @@
             <argument type="service" id="app.behat.page.admin.dashboard" />
             <tag name="app.behat.context" />
         </service>
+
+        <service id="app.behat.context.admin.managing_makes" class="Behat\Context\Admin\ManagingMakesContext" scope="scenario">
+            <argument type="service" id="app.behat.page.admin.make.index" />
+            <argument type="service" id="app.behat.page.admin.make.create" />
+            <argument type="service" id="app.behat.page.admin.make.update" />
+            <argument type="service" id="app.behat.current_page_resolver" />
+            <tag name="app.behat.context" />
+        </service>
+
+        <service id="app.behat.context.admin.notification" class="Behat\Context\Admin\NotificationContext" scope="scenario">
+            <argument type="service" id="app.behat.notification_checker" />
+            <tag name="app.behat.context" />
+        </service>
     </services>
 </container>

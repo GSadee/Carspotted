@@ -1,11 +1,11 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="{{ path('app_admin_dashboard') }}">Dashboard</a></li>
+        <li id="dashboard"><a href="{{ path('app_admin_dashboard') }}">{{ 'app.dashboard'|trans }}</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="#">Makes</a></li>
-        <li><a href="#">Models</a></li>
-        <li><a href="#">Spots</a></li>
-        <li><a href="#">Spotters</a></li>
+        <li id="makes"><a href="{{ path('app_admin_make_index') }}">{{ 'app.makes'|trans }}</a></li>
+        <li id="models"><a href="#">{{ 'app.models'|trans }}</a></li>
+        <li id="spots"><a href="#">{{ 'app.spots'|trans }}</a></li>
+        <li id="spotters"><a href="#">{{ 'app.models'|trans }}</a></li>
     </ul>
 </div>

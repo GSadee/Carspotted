@@ -1,0 +1,32 @@
+{% extends ':Admin/Layout:base.html.twig' %}
+
+{% import ':Macro:headers.html.twig' as headers %}
+
+{% set definition = resources.definition %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.'~metadata.pluralName) %}
+
+{% block title %}{{ parent() }} {{ header|trans }}{% endblock %}
+
+{% block content %}
+    {{ headers.default(header|trans, configuration.vars.subheader|default(null)|trans) }}
+
+    <div class="row text-right">
+        {% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
+            {% for action in definition.getActions('main') %}
+                {{ sylius_grid_render_action(resources, action, null) }}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {{ sylius_grid_render(resources, ':Admin/Crud:_grid.html.twig') }}
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var resource = "{{ metadata.pluralName }}";
+        $(document).ready(function() {
+            $('#' + resource).addClass('active');
+        });
+    </script>
+{% endblock %}

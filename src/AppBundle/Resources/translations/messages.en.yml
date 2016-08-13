@@ -1,0 +1,31 @@
+app:
+    actions: Actions
+    administration_panel: Administration panel
+    cancel: Cancel
+    create: Create
+    dashboard: Dashboard
+    delete: Delete
+    edit: Edit
+    edit_make: Edit make
+    edit_model: Edit model
+    home: Home
+    id: Id
+    log_out: Log out
+    makes: Makes
+    manage_makes: Manage makes
+    manage_models: Manage models
+    manage_spots: Manage spots
+    manage_spotters: Manage spotters
+    models: Models
+    name: Name
+    new_make: New make
+    new_model: New model
+    no_results_to_display: No results to display
+    recent_spots: Recent spots
+    register: register
+    save_changes: Save changes
+    show: Show
+    sign_in: Sign in
+    spots: Spots
+    spotters: Spotters
+    update: Update

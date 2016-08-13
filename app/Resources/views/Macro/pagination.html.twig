@@ -1,0 +1,25 @@
+{% macro link(paginator, number, label) %}
+    <li{% if number == paginator.currentPage %} class="active"{% endif %}>
+        <a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all)|merge({'page': number})) }}">{% if label is not empty %}{{ label }}{% else %}{{ number }}{% endif %}</a>
+    </li>
+{% endmacro %}
+
+{% macro render(paginator)  %}
+    {% import _self as pagination %}
+
+    {% if paginator.haveToPaginate() %}
+        <nav>
+            <ul class="pagination">
+                {% if paginator.hasPreviousPage() %}
+                    {{ pagination.link(paginator, paginator.getPreviousPage(), 'Previous') }}
+                {% endif %}
+                {% for number in 1..paginator.nbPages %}
+                    {{ pagination.link(paginator, number) }}
+                {% endfor %}
+                {% if paginator.hasNextPage() %}
+                    {{ pagination.link(paginator, paginator.getNextPage(), 'Next') }}
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endmacro %}

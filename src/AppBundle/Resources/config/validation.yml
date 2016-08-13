@@ -1,0 +1,5 @@
+AppBundle\Entity\Make:
+    properties:
+        name:
+            - NotBlank:
+                message: app.make.name.not_blank

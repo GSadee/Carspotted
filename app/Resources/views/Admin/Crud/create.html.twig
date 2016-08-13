@@ -1,0 +1,38 @@
+{% extends ':Admin/Layout:base.html.twig' %}
+
+{% import ':Macro:headers.html.twig' as headers %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.new_'~metadata.name) %}
+
+{% block title %}{{ parent() }} {{ header|trans }}{% endblock %}
+
+{% form_theme form ':Common/Form:theme.html.twig' %}
+
+{% block content %}
+    {{ headers.default(header|trans, configuration.vars.subheader|default(null)|trans) }}
+
+    {{ form_start(form, {'action': path(configuration.vars.route.name|default(configuration.getRouteName('create')), configuration.vars.route.parameters|default({})), 'attr': {'class': 'form-horizontal', 'novalidate': 'novalidate'}}) }}
+
+    {% if configuration.vars.templates.form is defined %}
+        {% include configuration.vars.templates.form %}
+    {% else %}
+        {{ form_widget(form) }}
+    {% endif %}
+
+    <div class="row text-right">
+        <button class="btn btn-success" type="submit">{{ 'app.create'|trans }}</button>
+        <a href="{{ cancel_path|default(app.request.headers.get('referer')) }}" class="btn btn-default">{{ 'app.cancel'|trans }}</a>
+    </div>
+
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        var resource = "{{ metadata.pluralName }}";
+        $(document).ready(function() {
+            $('#' + resource).addClass('active');
+        });
+    </script>
+{% endblock %}
