@@ -8,5 +8,6 @@ default:
                 - app.behat.context.setup.security
 
                 - app.behat.context.admin.managing_makes
+                - app.behat.context.admin.notification
             filters:
                 tags: "@managing_makes && @ui"

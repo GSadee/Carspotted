@@ -1,6 +1,7 @@
 app:
     actions: Actions
     administration_panel: Administration panel
+    cancel: Cancel
     create: Create
     dashboard: Dashboard
     delete: Delete
@@ -15,6 +16,8 @@ app:
     manage_spotters: Manage spotters
     models: Models
     name: Name
+    new_make: New make
+    new_model: New model
     no_results_to_display: No results to display
     recent_spots: Recent spots
     register: register

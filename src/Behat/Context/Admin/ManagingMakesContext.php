@@ -4,6 +4,7 @@ namespace Behat\Context\Admin;
 
 use Behat\Context\BaseContext;
 use Behat\Page\Admin\Crud\IndexPageInterface;
+use Behat\Page\Admin\Make\CreatePageInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -17,11 +18,18 @@ final class ManagingMakesContext extends BaseContext
     private $indexPage;
 
     /**
-     * @param IndexPageInterface $indexPage
+     * @var CreatePageInterface
      */
-    public function __construct(IndexPageInterface $indexPage)
+    private $createPage;
+
+    /**
+     * @param IndexPageInterface $indexPage
+     * @param CreatePageInterface $createPage
+     */
+    public function __construct(IndexPageInterface $indexPage, CreatePageInterface $createPage)
     {
         $this->indexPage = $indexPage;
+        $this->createPage = $createPage;
     }
 
     /**
@@ -48,12 +56,39 @@ final class ManagingMakesContext extends BaseContext
 
     /**
      * @Then I should see the make named :makeName in the list
+     * @Then the make :makeName should appear in the registry
      */
     public function iShouldSeeTheMakeInTheList($makeName)
     {
+        $this->iWantToBrowseMakes();
+
         Assert::true(
             $this->indexPage->isSingleResourceOnPage(['name' => $makeName]),
             sprintf('Make with name %s has not been found.', $makeName)
         );
+    }
+
+    /**
+     * @When I want to add a new make
+     */
+    public function iWantToAddANewMake()
+    {
+        $this->createPage->open();
+    }
+
+    /**
+     * @When I specify the name as :name
+     */
+    public function iSpecifyTheNameAs($name)
+    {
+        $this->createPage->specifyName($name);
+    }
+
+    /**
+     * @When I add it
+     */
+    public function iAddIt()
+    {
+        $this->createPage->create();
     }
 }

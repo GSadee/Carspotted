@@ -21,7 +21,7 @@ use Behat\Type\NotificationType;
  */
 final class NotificationAccessor implements NotificationAccessorInterface
 {
-    const NOTIFICATION_ELEMENT_CSS = '.message';
+    const NOTIFICATION_ELEMENT_CSS = '.alert';
 
     /**
      * @var Session
@@ -49,11 +49,11 @@ final class NotificationAccessor implements NotificationAccessorInterface
      */
     public function getType()
     {
-        if ($this->getMessageElement()->hasClass('positive')) {
+        if ($this->getMessageElement()->hasClass('alert-success')) {
             return NotificationType::success();
         }
 
-        if ($this->getMessageElement()->hasClass('negative')) {
+        if ($this->getMessageElement()->hasClass('alert-danger')) {
             return NotificationType::failure();
         }
 
