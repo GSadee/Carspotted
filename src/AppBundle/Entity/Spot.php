@@ -28,6 +28,11 @@ class Spot implements SpotInterface
     private $model;
 
     /**
+     * @var SpotterInterface
+     */
+    private $spotter;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -126,6 +131,22 @@ class Spot implements SpotInterface
     public function setModel($model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSpotter()
+    {
+        return $this->spotter;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSpotter($spotter)
+    {
+        $this->spotter = $spotter;
     }
 
     /**

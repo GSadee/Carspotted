@@ -6,6 +6,7 @@ use AppBundle\Entity\MakeInterface;
 use AppBundle\Entity\ModelInterface;
 use AppBundle\Entity\Spot;
 use AppBundle\Entity\SpotInterface;
+use AppBundle\Entity\SpotterInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -61,6 +62,17 @@ class SpotSpec extends ObjectBehavior
     {
         $this->setModel($model);
         $this->getModel()->shouldReturn($model);
+    }
+
+    function it_has_no_spotter_by_default()
+    {
+        $this->getSpotter()->shouldReturn(null);
+    }
+
+    function its_spotter_is_mutable(SpotterInterface $spotter)
+    {
+        $this->setSpotter($spotter);
+        $this->getSpotter()->shouldReturn($spotter);
     }
 
     function it_initializes_creation_date_by_default()

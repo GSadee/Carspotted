@@ -42,3 +42,10 @@ AppBundle\Entity\Spot:
                 name: model_id
                 referencedColumnName: id
                 onDelete: "CASCADE"
+        spotter:
+            targetEntity: AppBundle\Entity\Spotter
+            inversedBy: spots
+            joinColumn:
+                name: spot_id
+                referencedColumnName: id
+                onDelete: "CASCADE"

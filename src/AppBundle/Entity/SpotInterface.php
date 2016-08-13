@@ -40,6 +40,16 @@ interface SpotInterface extends ResourceInterface
     public function setModel($model);
 
     /**
+     * @return SpotterInterface
+     */
+    public function getSpotter();
+
+    /**
+     * @param SpotterInterface $spotter
+     */
+    public function setSpotter($spotter);
+
+    /**
      * @return \DateTime
      */
     public function getCreatedAt();

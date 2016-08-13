@@ -3,6 +3,7 @@ AppBundle\Entity\Spot:
         description: <sentence()>
         make: @make1
         model: @model1
+        spotter: @spotter1
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
         lng: <longitude()>
@@ -15,6 +16,7 @@ AppBundle\Entity\Spot:
         description: <sentence()>
         make: @make1
         model: @model2
+        spotter: @spotter2
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
         lng: <longitude()>
@@ -27,6 +29,7 @@ AppBundle\Entity\Spot:
         description: <sentence()>
         make: @make3
         model: @model4
+        spotter: @spotter2
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
         lng: <longitude()>
@@ -39,6 +42,7 @@ AppBundle\Entity\Spot:
         description: <sentence()>
         make: @make5
         model: @model6
+        spotter: @spotter3
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
         lng: <longitude()>
