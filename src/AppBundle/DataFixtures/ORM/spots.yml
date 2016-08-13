@@ -9,6 +9,7 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
+        enabled: true
 
     spot2:
         description: <sentence()>
@@ -20,6 +21,7 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
+        enabled: true
 
     spot3:
         description: <sentence()>
@@ -31,6 +33,7 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
+        enabled: true
 
     spot4:
         description: <sentence()>
@@ -42,3 +45,4 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
+        enabled: false

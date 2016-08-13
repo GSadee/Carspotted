@@ -133,4 +133,15 @@ class SpotSpec extends ObjectBehavior
         $this->setLicencePlate($licensePlate);
         $this->getLicencePlate()->shouldReturn($licensePlate);
     }
+
+    function it_disabled_by_default()
+    {
+        $this->isEnabled()->shouldReturn(false);
+    }
+
+    function it_can_be_enabled($enabled)
+    {
+        $this->setEnabled($enabled);
+        $this->isEnabled()->shouldReturn($enabled);
+    }
 }

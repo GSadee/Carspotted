@@ -26,6 +26,9 @@ AppBundle\Entity\Spot:
             column: license_plate
             type: string
             nullable: true
+        enabled:
+            column: enabled
+            type: boolean
     manyToOne:
         make:
             targetEntity: AppBundle\Entity\Make

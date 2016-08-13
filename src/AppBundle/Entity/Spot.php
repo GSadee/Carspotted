@@ -62,6 +62,11 @@ class Spot implements SpotInterface
      */
     private $licensePlate;
 
+    /**
+     * @var bool
+     */
+    private $enabled = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -233,5 +238,21 @@ class Spot implements SpotInterface
     public function setLicencePlate($licencePlate)
     {
         $this->licensePlate = $licencePlate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
     }
 }

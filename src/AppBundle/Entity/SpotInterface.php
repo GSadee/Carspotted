@@ -108,4 +108,14 @@ interface SpotInterface extends ResourceInterface
      * @param string $licencePlate
      */
     public function setLicencePlate($licencePlate);
+
+    /**
+     * @return bool
+     */
+    public function isEnabled();
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled);
 }
