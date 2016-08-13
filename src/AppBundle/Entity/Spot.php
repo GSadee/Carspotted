@@ -248,7 +248,7 @@ class Spot implements SpotInterface
     /**
      * {@inheritdoc}
      */
-    public function getLicencePlate()
+    public function getLicensePlate()
     {
         return $this->licensePlate;
     }
@@ -256,9 +256,9 @@ class Spot implements SpotInterface
     /**
      * {@inheritdoc}
      */
-    public function setLicencePlate($licencePlate)
+    public function setLicensePlate($licensePlate)
     {
-        $this->licensePlate = $licencePlate;
+        $this->licensePlate = $licensePlate;
     }
 
     /**

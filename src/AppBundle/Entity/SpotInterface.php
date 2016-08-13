@@ -112,12 +112,12 @@ interface SpotInterface extends ResourceInterface
     /**
      * @return string
      */
-    public function getLicencePlate();
+    public function getLicensePlate();
 
     /**
-     * @param string $licencePlate
+     * @param string $licensePlate
      */
-    public function setLicencePlate($licencePlate);
+    public function setLicensePlate($licensePlate);
 
     /**
      * @return bool
