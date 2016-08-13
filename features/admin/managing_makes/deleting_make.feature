@@ -8,8 +8,8 @@ Feature: Deleting a channel
         Given there is a make "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Deleting the make
-        When I delete a make "Opel"
+        When I delete the make "Opel"
         Then I should be notified that it has been successfully deleted
         And the make "Opel" should no longer exist in the registry

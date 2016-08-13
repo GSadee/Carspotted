@@ -35,7 +35,7 @@
 {% macro delete(url, message) %}
     <form action="{{ url }}" method="post">
         <input type="hidden" name="_method" value="DELETE">
-        <button type="button" class="btn btn-danger" type="submit" data-requires-confirmation>
+        <button type="submit" class="btn btn-danger" type="submit" data-requires-confirmation>
             {{ message is empty ? 'app.delete'|trans : message }}
         </button>
     </form>

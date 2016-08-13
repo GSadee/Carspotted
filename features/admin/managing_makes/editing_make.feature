@@ -10,7 +10,7 @@ Feature: Editing a make
 
     @ui
     Scenario: Renaming the make
-        When I want to modify this make
+        When I want to modify the make "Opel"
         And I rename it to "Audi"
         And I save my changes
         Then I should be notified that it has been successfully edited

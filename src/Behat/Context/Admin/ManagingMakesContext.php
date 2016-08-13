@@ -81,6 +81,17 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
+     * @Then the make :makeName should no longer exist in the registry
+     */
+    public function theMakeShouldNoLongerExistInTheRegistry($makeName)
+    {
+        Assert::false(
+            $this->indexPage->isSingleResourceOnPage(['name' => $makeName]),
+            sprintf('Make with name %s exists but should not.', $makeName)
+        );
+    }
+
+    /**
      * @When I want to add a new make
      */
     public function iWantToAddANewMake()
@@ -106,9 +117,9 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
-     * @When /^I want to modify (this make)$/
+     * @When I want to modify the make :make
      */
-    public function iWantToModifyThisMake(MakeInterface $make)
+    public function iWantToModifyMake(MakeInterface $make)
     {
         $this->updatePage->open(['id' => $make->getId()]);
     }
@@ -130,5 +141,14 @@ final class ManagingMakesContext extends BaseContext
             $this->updatePage->hasResourceValues([$element => $value]),
             sprintf('Make %s should be %s', $element, $value)
         );
+    }
+
+    /**
+     * @When I delete the make :make
+     */
+    public function iDeleteTheMake(MakeInterface $make)
+    {
+        $this->indexPage->open();
+        $this->indexPage->deleteResourceOnPage(['name' => $make->getName()]);
     }
 }
