@@ -1,5 +1,5 @@
 @managing_makes
-Feature: Deleting a channel
+Feature: Deleting a make
     In order to remove test, obsolete or incorrect makes
     As an Administrator
     I want to be able to delete a make

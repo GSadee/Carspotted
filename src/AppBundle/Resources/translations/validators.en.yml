@@ -2,3 +2,8 @@ app:
     make:
         name:
             not_blank: Please enter make name.
+    model:
+        name:
+            not_blank: Please enter model name.
+        make:
+            not_blank: Please select model make.

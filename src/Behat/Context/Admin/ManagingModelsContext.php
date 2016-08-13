@@ -3,17 +3,18 @@
 namespace Behat\Context\Admin;
 
 use AppBundle\Entity\MakeInterface;
+use AppBundle\Entity\ModelInterface;
 use Behat\Context\BaseContext;
 use Behat\Page\Admin\Crud\IndexPageInterface;
-use Behat\Page\Admin\Make\CreatePageInterface;
-use Behat\Page\Admin\Make\UpdatePageInterface;
+use Behat\Page\Admin\Model\CreatePageInterface;
+use Behat\Page\Admin\Model\UpdatePageInterface;
 use Behat\Service\Resolver\CurrentPageResolverInterface;
 use Webmozart\Assert\Assert;
 
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-final class ManagingMakesContext extends BaseContext
+final class ManagingModelsContext extends BaseContext
 {
     /**
      * @var IndexPageInterface
@@ -54,56 +55,56 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
-     * @When I want to browse makes
+     * @When I want to browse models
      */
-    public function iWantToBrowseMakes()
+    public function iWantToBrowseModels()
     {
         $this->indexPage->open();
     }
 
     /**
-     * @Then I should see :numberOfMakes makes in the list
+     * @Then I should see :numberOfModels models in the list
      */
-    public function iShouldSeeMakessInTheList($numberOfMakes)
+    public function iShouldSeeModelsInTheList($numberOfModels)
     {
         $foundRows = $this->indexPage->countItems();
 
         Assert::eq(
-            $numberOfMakes,
+            $numberOfModels,
             $foundRows,
-            '%s rows with makes should appear on page, %s rows has been found'
+            '%s rows with models should appear on page, %s rows has been found'
         );
     }
 
     /**
-     * @Then I should see the make named :makeName in the list
-     * @Then the make :makeName should appear in the registry
+     * @Then I should see the model named :modelName in the list
+     * @Then the model :modelName should appear in the registry
      */
-    public function iShouldSeeTheMakeInTheList($makeName)
+    public function iShouldSeeTheModelInTheList($modelName)
     {
-        $this->iWantToBrowseMakes();
+        $this->iWantToBrowseModels();
 
         Assert::true(
-            $this->indexPage->isSingleResourceOnPage(['name' => $makeName]),
-            sprintf('Make with name %s has not been found.', $makeName)
+            $this->indexPage->isSingleResourceOnPage(['name' => $modelName]),
+            sprintf('Model with name %s has not been found.', $modelName)
         );
     }
 
     /**
-     * @Then the make :makeName should no longer exist in the registry
+     * @Then the model :modelName should no longer exist in the registry
      */
-    public function theMakeShouldNoLongerExistInTheRegistry($makeName)
+    public function theModelShouldNoLongerExistInTheRegistry($modelName)
     {
         Assert::false(
-            $this->indexPage->isSingleResourceOnPage(['name' => $makeName]),
-            sprintf('Make with name %s exists but should not.', $makeName)
+            $this->indexPage->isSingleResourceOnPage(['name' => $modelName]),
+            sprintf('Model with name %s exists but should not.', $modelName)
         );
     }
 
     /**
-     * @When I want to add a new make
+     * @When I want to add a new model
      */
-    public function iWantToAddANewMake()
+    public function iWantToAddANewModel()
     {
         $this->createPage->open();
     }
@@ -127,6 +128,23 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
+     * @When I choose :makeName as a make
+     * @When I do not choose a make
+     */
+    public function iChooseMake($makeName = null)
+    {
+        $this->createPage->chooseMake($makeName);
+    }
+
+    /**
+     * @When I change a make to :makeName
+     */
+    public function iChangeMake($makeName)
+    {
+        $this->updatePage->chooseMake($makeName);
+    }
+
+    /**
      * @When I add it
      * @When I try to add it
      */
@@ -136,12 +154,12 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
-     * @When I want to modify the make :make
-     * @When /^I want to modify (this make)$/
+     * @When I want to modify the model :model
+     * @When /^I want to modify (this model)$/
      */
-    public function iWantToModifyMake(MakeInterface $make)
+    public function iWantToModifyMake(ModelInterface $model)
     {
-        $this->updatePage->open(['id' => $make->getId()]);
+        $this->updatePage->open(['id' => $model->getId()]);
     }
 
     /**
@@ -154,23 +172,28 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
-     * @Then this make :element should be :value
+     * @Then /^(this model) ([^"]+) should be "([^"]+)"$/
      */
-    public function thisMakeElementShouldBe($element, $value)
+    public function thisModelElementShouldBe(ModelInterface $model, $element, $value)
     {
+        $this->iWantToBrowseModels();
+
         Assert::true(
-            $this->updatePage->hasResourceValues([$element => $value]),
-            sprintf('Make %s should be %s', $element, $value)
+            $this->indexPage->isSingleResourceOnPage([
+                'id' => $model->getId(),
+                $element => $value,
+            ]),
+            sprintf('Model %s should be %s', $element, $value)
         );
     }
 
     /**
-     * @When I delete the make :make
+     * @When I delete the model :model
      */
-    public function iDeleteTheMake(MakeInterface $make)
+    public function iDeleteTheModel(ModelInterface $model)
     {
         $this->indexPage->open();
-        $this->indexPage->deleteResourceOnPage(['name' => $make->getName()]);
+        $this->indexPage->deleteResourceOnPage(['name' => $model->getName()]);
     }
 
     /**
@@ -181,22 +204,22 @@ final class ManagingMakesContext extends BaseContext
         /** @var CreatePageInterface|UpdatePageInterface $currentPage */
         $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
-        $this->assertFieldValidationMessage($currentPage, $element, sprintf('Please enter make %s.', $element));
+        $this->assertFieldValidationMessage($currentPage, $element, sprintf('Please enter model %s.', $element));
     }
 
     /**
-     * @Then /^(this make) should still be named "([^"]+)"$/
+     * @Then /^(this model) should still be named "([^"]+)"$/
      */
-    public function thisMakeNameShouldBe(MakeInterface $make, $makeName)
+    public function thisModelNameShouldBe(ModelInterface $model, $modelName)
     {
-        $this->iWantToBrowseMakes();
+        $this->iWantToBrowseModels();
 
         Assert::true(
             $this->indexPage->isSingleResourceOnPage([
-                'id' => $make->getId(),
-                'name' => $makeName,
+                'id' => $model->getId(),
+                'name' => $modelName,
             ]),
-            sprintf('Make name %s has not been assigned properly.', $makeName)
+            sprintf('Model name %s has not been assigned properly.', $modelName)
         );
     }
 }

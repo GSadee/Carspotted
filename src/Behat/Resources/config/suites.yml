@@ -1,6 +1,7 @@
 imports:
     - suites/admin/dashboard.yml
     - suites/admin/managing_makes.yml
+    - suites/admin/managing_models.yml
     - suites/ui/homepage.yml
     - suites/ui/registering.yml
     - suites/ui/signing_in.yml

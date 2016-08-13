@@ -15,6 +15,14 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.admin.managing_models" class="Behat\Context\Admin\ManagingModelsContext" scope="scenario">
+            <argument type="service" id="app.behat.page.admin.model.index" />
+            <argument type="service" id="app.behat.page.admin.model.create" />
+            <argument type="service" id="app.behat.page.admin.model.update" />
+            <argument type="service" id="app.behat.current_page_resolver" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.admin.notification" class="Behat\Context\Admin\NotificationContext" scope="scenario">
             <argument type="service" id="app.behat.notification_checker" />
             <tag name="app.behat.context" />

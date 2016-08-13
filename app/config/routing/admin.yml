@@ -14,3 +14,7 @@ app_admin_dashboard:
 app_admin_make:
     resource: "admin/make.yml"
     prefix: /admin
+
+app_admin_model:
+    resource: "admin/model.yml"
+    prefix: /admin
