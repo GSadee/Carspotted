@@ -6,6 +6,8 @@ sylius_resource:
         app.model:
             classes:
                 model: AppBundle\Entity\Model
+                form:
+                    default: AppBundle\Form\Type\ModelType
         app.spot:
             classes:
                 model: AppBundle\Entity\Spot
