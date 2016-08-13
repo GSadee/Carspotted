@@ -8,6 +8,7 @@ default:
                 - app.behat.context.setup.security
 
                 - app.behat.context.transform.make
+                - app.behat.context.transform.shared_storage
 
                 - app.behat.context.admin.managing_makes
                 - app.behat.context.admin.notification

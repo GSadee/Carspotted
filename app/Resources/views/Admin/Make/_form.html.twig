@@ -1,5 +1,5 @@
-{{ form_errors(form) }}
 <div class="form-group">
+    {{ form_errors(form.name) }}
     <label class="col-sm-1 control-label">{{ form_label(form.name) }}</label>
     <div class="col-sm-11">
         {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}

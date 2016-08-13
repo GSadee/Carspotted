@@ -11,6 +11,7 @@
             <argument type="service" id="app.behat.page.admin.make.index" />
             <argument type="service" id="app.behat.page.admin.make.create" />
             <argument type="service" id="app.behat.page.admin.make.update" />
+            <argument type="service" id="app.behat.current_page_resolver" />
             <tag name="app.behat.context" />
         </service>
 

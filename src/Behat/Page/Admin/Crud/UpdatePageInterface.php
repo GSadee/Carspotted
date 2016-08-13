@@ -2,7 +2,6 @@
 
 namespace Behat\Page\Admin\Crud;
 
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Page\SymfonyPageInterface;
 
 /**
@@ -18,13 +17,4 @@ interface UpdatePageInterface extends SymfonyPageInterface
     public function hasResourceValues(array $parameters);
 
     public function saveChanges();
-
-    /**
-     * @param string $element
-     *
-     * @return string
-     *
-     * @throws ElementNotFoundException
-     */
-    public function getValidationMessage($element);
 }

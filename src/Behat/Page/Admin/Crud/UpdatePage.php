@@ -2,7 +2,6 @@
 
 namespace Behat\Page\Admin\Crud;
 
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Session;
 use Behat\Page\SymfonyPage;
 use Symfony\Component\Routing\RouterInterface;
@@ -61,55 +60,10 @@ class UpdatePage extends SymfonyPage implements UpdatePageInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getValidationMessage($element)
-    {
-        $foundElement = $this->getFieldElement($element);
-        if (null === $foundElement) {
-            throw new ElementNotFoundException($this->getSession(), 'Field element');
-        }
-
-        $validationMessage = $foundElement->find('css', '.alert.alert-danger');
-        if (null === $validationMessage) {
-            throw new ElementNotFoundException($this->getSession(), 'Validation message', 'css', '.alert.alert-danger');
-        }
-
-        return $validationMessage->getText();
-    }
-
-    /**
      * @return string
      */
     protected function getResourceName()
     {
         return $this->resourceName;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefinedElements()
-    {
-        return array_merge(parent::getDefinedElements(), [
-            'name' => '#app_make_name',
-        ]);
-    }
-
-    /**
-     * @param string $element
-     *
-     * @return \Behat\Mink\Element\NodeElement|null
-     *
-     * @throws ElementNotFoundException
-     */
-    private function getFieldElement($element)
-    {
-        $element = $this->getElement($element);
-        while (null !== $element && !($element->hasClass('field'))) {
-            $element = $element->getParent();
-        }
-
-        return $element;
     }
 }

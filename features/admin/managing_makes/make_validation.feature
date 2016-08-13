@@ -8,14 +8,14 @@ Feature: Make validation
         Given there is a make "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Trying to add a new make without specifying its name
         When I want to add a new make
         And I do not specify the name
         And I try to add it
         Then I should be notified that name is required
 
-    @todo
+    @ui
     Scenario: Trying to remove name from an existing make
         When I want to modify this make
         And I remove its name
