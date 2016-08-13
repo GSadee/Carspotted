@@ -78,6 +78,7 @@ final class ManagingMakesContext extends BaseContext
     /**
      * @Then I should see the make named :makeName in the list
      * @Then the make :makeName should appear in the registry
+     * @Then there should still be only one make with name :makeName
      */
     public function iShouldSeeTheMakeInTheList($makeName)
     {
@@ -198,5 +199,16 @@ final class ManagingMakesContext extends BaseContext
             ]),
             sprintf('Make name %s has not been assigned properly.', $makeName)
         );
+    }
+
+    /**
+     * @Then I should be notified that make with this name already exists
+     */
+    public function iShouldBeNotifiedThatMakeWithThisNameAlreadyExists()
+    {
+        /** @var CreatePageInterface|UpdatePageInterface $currentPage */
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
+
+        $this->assertFieldValidationMessage($currentPage, 'name', 'The make with given name already exists.');
     }
 }

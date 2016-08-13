@@ -79,6 +79,7 @@ final class ManagingModelsContext extends BaseContext
     /**
      * @Then I should see the model named :modelName in the list
      * @Then the model :modelName should appear in the registry
+     * @Then there should still be only one model with name :modelName
      */
     public function iShouldSeeTheModelInTheList($modelName)
     {
@@ -221,5 +222,16 @@ final class ManagingModelsContext extends BaseContext
             ]),
             sprintf('Model name %s has not been assigned properly.', $modelName)
         );
+    }
+
+    /**
+     * @Then I should be notified that model with this name and make already exists
+     */
+    public function iShouldBeNotifiedThatMakeWithThisNameAlreadyExists()
+    {
+        /** @var CreatePageInterface|UpdatePageInterface $currentPage */
+        $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
+
+        $this->assertFieldValidationMessage($currentPage, 'name', 'The model with given name and make already exists.');
     }
 }

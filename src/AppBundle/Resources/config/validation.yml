@@ -1,10 +1,18 @@
 AppBundle\Entity\Make:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: name
+            message: app.make.name.unique
     properties:
         name:
             - NotBlank:
                 message: app.make.name.not_blank
 
 AppBundle\Entity\Model:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [make, name]
+            message: app.model.name.unique
     properties:
         name:
             - NotBlank:
