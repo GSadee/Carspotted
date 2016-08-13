@@ -3,38 +3,36 @@
 {% block title %}Carspotted - {{ 'app.administration_panel'|trans|lower }}{% endblock %}
 
 {% block content %}
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">{{ 'app.dashboard'|trans }}</h1>
+    <h1 class="page-header">{{ 'app.dashboard'|trans }}</h1>
 
-        <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <a href="{{ path('app_admin_make_index') }}">
-                    <img src="{{ asset('images/admin/makes.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_makes'|trans }}">
-                    <h4 class="text-muted">{{ 'app.manage_makes'|trans }}</h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <a href="#">
-                    <img src="{{ asset('images/admin/models.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_models'|trans }}">
-                    <h4 class="text-muted">{{ 'app.manage_models'|trans }}</h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <a href="#">
-                    <img src="{{ asset('images/admin/spots.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_spots'|trans }}">
-                    <h4 class="text-muted">{{ 'app.manage_spots'|trans }}</h4>
-                </a>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-                <a href="#">
-                    <img src="{{ asset('images/admin/spotters.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_spotters'|trans }}">
-                    <h4 class="text-muted">{{ 'app.manage_spotters'|trans }}</h4>
-                </a>
-            </div>
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('app_admin_make_index') }}">
+                <img src="{{ asset('images/admin/makes.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_makes'|trans }}">
+                <h4 class="text-muted">{{ 'app.manage_makes'|trans }}</h4>
+            </a>
         </div>
-
-        {% include ':Admin/Dashboard:_recentSpots.html.twig' %}
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="#">
+                <img src="{{ asset('images/admin/models.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_models'|trans }}">
+                <h4 class="text-muted">{{ 'app.manage_models'|trans }}</h4>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="#">
+                <img src="{{ asset('images/admin/spots.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_spots'|trans }}">
+                <h4 class="text-muted">{{ 'app.manage_spots'|trans }}</h4>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="#">
+                <img src="{{ asset('images/admin/spotters.png') }}" width="200" height="200" class="img-responsive" alt="{{ 'app.manage_spotters'|trans }}">
+                <h4 class="text-muted">{{ 'app.manage_spotters'|trans }}</h4>
+            </a>
+        </div>
     </div>
+
+    {% include ':Admin/Dashboard:_recentSpots.html.twig' %}
 {% endblock %}
 
 {% block scripts %}

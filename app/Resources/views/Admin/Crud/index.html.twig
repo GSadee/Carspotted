@@ -9,19 +9,17 @@
 {% block title %}{{ parent() }} {{ header|trans }}{% endblock %}
 
 {% block content %}
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        {{ headers.default(header|trans, configuration.vars.subheader|default(null)|trans) }}
+    {{ headers.default(header|trans, configuration.vars.subheader|default(null)|trans) }}
 
-        <div class="row text-right">
-            {% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
-                {% for action in definition.getActions('main') %}
-                    {{ sylius_grid_render_action(resources, action, null) }}
-                {% endfor %}
-            {% endif %}
-        </div>
-
-        {{ sylius_grid_render(resources, ':Admin/Crud:_grid.html.twig') }}
+    <div class="row text-right">
+        {% if definition.actionGroups.main is defined and definition.getActions('main')|length > 0 %}
+            {% for action in definition.getActions('main') %}
+                {{ sylius_grid_render_action(resources, action, null) }}
+            {% endfor %}
+        {% endif %}
     </div>
+
+    {{ sylius_grid_render(resources, ':Admin/Crud:_grid.html.twig') }}
 {% endblock %}
 
 {% block scripts %}

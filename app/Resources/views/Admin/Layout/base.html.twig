@@ -16,7 +16,17 @@
     <div class="row">
         {% include ':Admin/Layout:_navbar.html.twig' %}
 
-        {% block content %}{% endblock %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            {% if disableFlashes is not defined %}
+                {% set disableFlashes = false %}
+            {% endif %}
+
+            {% if disableFlashes == false %}
+                {% include ':Layout:_flashes.html.twig' %}
+            {% endif %}
+
+            {% block content %}{% endblock %}
+        </div>
     </div>
 </div>
 
