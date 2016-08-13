@@ -2,8 +2,10 @@ app:
     make:
         name:
             not_blank: Please enter make name.
+            unique: The make with given name already exists.
     model:
         name:
             not_blank: Please enter model name.
+            unique: The model with given name and make already exists.
         make:
             not_blank: Please select model make.

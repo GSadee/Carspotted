@@ -8,7 +8,7 @@ Feature: Make unique code validation
         Given there is a make "Lamborghini"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Trying to add a make with a taken name
         When I want to add a new make
         And I specify the name as "Lamborghini"
