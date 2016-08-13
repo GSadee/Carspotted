@@ -8,9 +8,9 @@ Feature: Editing a make
         Given there is a make "Opel"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Renaming the make
-        When I want to modify a make "Opel"
+        When I want to modify this make
         And I rename it to "Audi"
         And I save my changes
         Then I should be notified that it has been successfully edited

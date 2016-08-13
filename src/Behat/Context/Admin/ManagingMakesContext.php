@@ -2,9 +2,11 @@
 
 namespace Behat\Context\Admin;
 
+use AppBundle\Entity\MakeInterface;
 use Behat\Context\BaseContext;
 use Behat\Page\Admin\Crud\IndexPageInterface;
 use Behat\Page\Admin\Make\CreatePageInterface;
+use Behat\Page\Admin\Make\UpdatePageInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -23,13 +25,23 @@ final class ManagingMakesContext extends BaseContext
     private $createPage;
 
     /**
+     * @var UpdatePageInterface
+     */
+    private $updatePage;
+
+    /**
      * @param IndexPageInterface $indexPage
      * @param CreatePageInterface $createPage
+     * @param UpdatePageInterface $updatePage
      */
-    public function __construct(IndexPageInterface $indexPage, CreatePageInterface $createPage)
-    {
+    public function __construct(
+        IndexPageInterface $indexPage,
+        CreatePageInterface $createPage,
+        UpdatePageInterface $updatePage
+    ) {
         $this->indexPage = $indexPage;
         $this->createPage = $createPage;
+        $this->updatePage = $updatePage;
     }
 
     /**
@@ -78,6 +90,7 @@ final class ManagingMakesContext extends BaseContext
 
     /**
      * @When I specify the name as :name
+     * @When I rename it to :name
      */
     public function iSpecifyTheNameAs($name)
     {
@@ -90,5 +103,32 @@ final class ManagingMakesContext extends BaseContext
     public function iAddIt()
     {
         $this->createPage->create();
+    }
+
+    /**
+     * @When /^I want to modify (this make)$/
+     */
+    public function iWantToModifyThisMake(MakeInterface $make)
+    {
+        $this->updatePage->open(['id' => $make->getId()]);
+    }
+
+    /**
+     * @When I save my changes
+     */
+    public function iSaveMyChanges()
+    {
+        $this->updatePage->saveChanges();
+    }
+
+    /**
+     * @Then this make :element should be :value
+     */
+    public function thisMakeElementShouldBe($element, $value)
+    {
+        Assert::true(
+            $this->updatePage->hasResourceValues([$element => $value]),
+            sprintf('Make %s should be %s', $element, $value)
+        );
     }
 }

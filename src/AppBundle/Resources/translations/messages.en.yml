@@ -6,6 +6,8 @@ app:
     dashboard: Dashboard
     delete: Delete
     edit: Edit
+    edit_make: Edit make
+    edit_model: Edit model
     home: Home
     id: Id
     log_out: Log out
@@ -21,6 +23,7 @@ app:
     no_results_to_display: No results to display
     recent_spots: Recent spots
     register: register
+    save_changes: Save changes
     show: Show
     sign_in: Sign in
     spots: Spots

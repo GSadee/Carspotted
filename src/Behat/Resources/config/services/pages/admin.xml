@@ -8,6 +8,7 @@
     <parameters>
         <parameter key="app.behat.page.admin.crud.index.class">Behat\Page\Admin\Crud\IndexPage</parameter>
         <parameter key="app.behat.page.admin.crud.create.class">Behat\Page\Admin\Crud\CreatePage</parameter>
+        <parameter key="app.behat.page.admin.crud.update.class">Behat\Page\Admin\Crud\UpdatePage</parameter>
 
         <parameter key="app.behat.page.admin.dashboard.class">Behat\Page\Admin\DashboardPage</parameter>
     </parameters>
@@ -17,6 +18,7 @@
             <argument type="service" id="app.behat.table_accessor" />
         </service>
         <service id="app.behat.page.admin.crud.create" class="%app.behat.page.admin.crud.create.class%" parent="app.behat.symfony_page" abstract="true" scope="scenario" public="false" />
+        <service id="app.behat.page.admin.crud.update" class="%app.behat.page.admin.crud.update.class%" parent="app.behat.symfony_page" abstract="true" scope="scenario" public="false" />
 
         <service id="app.behat.page.admin.dashboard" class="%app.behat.page.admin.dashboard.class%" parent="app.behat.symfony_page" scope="scenario" public="false" />
     </services>

@@ -4,6 +4,7 @@
     <parameters>
         <parameter key="app.behat.page.admin.make.create.class">Behat\Page\Admin\Make\CreatePage</parameter>
         <parameter key="app.behat.page.admin.make.index.class">%app.behat.page.admin.crud.index.class%</parameter>
+        <parameter key="app.behat.page.admin.make.update.class">Behat\Page\Admin\Make\UpdatePage</parameter>
     </parameters>
 
     <services>
@@ -11,6 +12,9 @@
             <argument type="string">make</argument>
         </service>
         <service id="app.behat.page.admin.make.index" class="%app.behat.page.admin.make.index.class%" parent="app.behat.page.admin.crud.index" scope="scenario" public="false">
+            <argument type="string">make</argument>
+        </service>
+        <service id="app.behat.page.admin.make.update" class="%app.behat.page.admin.make.update.class%" parent="app.behat.page.admin.crud.update" scope="scenario" public="false">
             <argument type="string">make</argument>
         </service>
     </services>
