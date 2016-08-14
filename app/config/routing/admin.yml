@@ -8,7 +8,7 @@ app_admin:
 app_admin_dashboard:
     path: /dashboard
     defaults:
-        _controller: app.controller.homepage:indexAction
+        _controller: app.controller.dashboard:indexAction
         template: :Admin/Dashboard:index.html.twig
 
 app_admin_make:

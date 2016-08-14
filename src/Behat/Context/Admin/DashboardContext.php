@@ -43,4 +43,18 @@ final class DashboardContext extends BaseContext
             'The text: %2$s cannot be found on page.'
         );
     }
+
+    /**
+     * @Then I should see :numberOfSpots spots in the list
+     */
+    public function iShouldSeeSpotsInTheList($numberOfSpots)
+    {
+        $foundRows = $this->dashboardPage->countSpots();
+
+        Assert::eq(
+            $numberOfSpots,
+            $foundRows,
+            '%s rows with spots should appear on page, %s rows has been found'
+        );
+    }
 }
