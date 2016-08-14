@@ -66,7 +66,7 @@ final class SpotContext implements Context
     }
 
     /**
-     * @Given /^(this user) spotted(?:| also) a (model "[^"]*") (made by "[^"]*")$/
+     * @Given /^(this spotter) spotted(?:| also) a (model "[^"]*") (made by "[^"]*")$/
      */
     public function thisUserSpottedAModelMadeBy(SpotterInterface $spotter, ModelInterface $model, MakeInterface $make)
     {

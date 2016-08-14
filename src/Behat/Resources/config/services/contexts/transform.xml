@@ -16,5 +16,10 @@
             <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />
         </service>
+
+        <service id="app.behat.context.transform.spotter" class="Behat\Context\Transform\SpotterContext" scope="scenario">
+            <argument type="service" id="fos_user.user_manager" container="symfony" />
+            <tag name="app.behat.context" />
+        </service>
     </services>
 </container>

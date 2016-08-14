@@ -1,6 +1,7 @@
 app:
     actions: Actions
     administration_panel: Administration panel
+    administrator: Administrator
     cancel: Cancel
     create: Create
     created_at: Created at
@@ -10,10 +11,12 @@ app:
     edit_make: Edit make
     edit_model: Edit model
     edit_spot: Edit spot
+    email: Email
     enabled: Enabled
     disabled: Disabled
     home: Home
     id: Id
+    last_login: Last login
     log_out: Log out
     make: Make
     makes: Makes
@@ -28,7 +31,8 @@ app:
     new_model: New model
     no_results_to_display: No results to display
     recent_spots: Recent spots
-    register: register
+    register: Register
+    role: Role
     save_changes: Save changes
     show: Show
     sign_in: Sign in
@@ -37,3 +41,5 @@ app:
     spotter: Spotter
     spotters: Spotters
     update: Update
+    user: User
+    username: Username

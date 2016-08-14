@@ -1,0 +1,30 @@
+sylius_grid:
+    grids:
+        app_admin_spotter:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\Spotter
+            sorting:
+                username: desc
+            fields:
+                username:
+                    type: string
+                    label: app.username
+                email:
+                    type: string
+                    label: app.email
+                roles:
+                    type: twig
+                    label: app.role
+                    options:
+                        template: :Admin/Spotter/Field:role.html.twig
+                enabled:
+                    type: twig
+                    label: app.enabled
+                    options:
+                        template: :Grid/Field:enabled.html.twig
+            actions:
+                item:
+                    delete:
+                        type: delete

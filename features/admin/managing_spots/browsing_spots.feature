@@ -8,8 +8,8 @@ Feature: Browsing spots
         Given there is a spotter "user" with an email "user@example.com" and a password "resu"
         And there is a model "RS7" made by "Audi"
         And there is also a model "NSX" made by "Honda"
-        And this user spotted a model "RS7" made by "Audi"
-        And this user spotted also a model "NSX" made by "Honda"
+        And this spotter spotted a model "RS7" made by "Audi"
+        And this spotter spotted also a model "NSX" made by "Honda"
         And I am logged in as an administrator
 
     @ui

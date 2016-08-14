@@ -9,8 +9,8 @@ Feature: Browsing spotters
         And there is also a user "user" with an email "user@example.com" and a password "resu"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Browsing spotters
         When I want to browse spotters
         Then I should see 2 spotters in the list
-        And I should see the user "admin" in the list
+        And I should see the spotter "admin" in the list
