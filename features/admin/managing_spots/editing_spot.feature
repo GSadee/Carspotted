@@ -11,7 +11,7 @@ Feature: Editing a spot
         And this user spotted a model "RS7" made by "Audi"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Changing the spot model
         When I want to modify this spot
         And I change a model to "RS6"
@@ -19,7 +19,7 @@ Feature: Editing a spot
         Then I should be notified that it has been successfully edited
         And this spot model should be "RS6"
 
-    @todo
+    @ui
     Scenario: Enabling the spot
         When I want to modify this spot
         And I enable it

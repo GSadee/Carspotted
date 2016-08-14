@@ -21,14 +21,30 @@ class SpotType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description', TextareaType::class)
-            ->add('lat', NumberType::class)
-            ->add('lng', NumberType::class)
-            ->add('country', TextType::class)
-            ->add('city', TextType::class)
-            ->add('illegiblePlate', CheckboxType::class)
-            ->add('licensePlate', TextType::class)
-            ->add('enabled', CheckboxType::class)
+            ->add('description', TextareaType::class, [
+                'required' => false,
+            ])
+            ->add('lat', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('lng', NumberType::class, [
+                'required' => false,
+            ])
+            ->add('country', TextType::class, [
+                'required' => false,
+            ])
+            ->add('city', TextType::class, [
+                'required' => false,
+            ])
+            ->add('illegiblePlate', CheckboxType::class, [
+                'required' => false,
+            ])
+            ->add('licensePlate', TextType::class, [
+                'required' => false,
+            ])
+            ->add('enabled', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('make', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Make',
                 'choice_label' => 'name',

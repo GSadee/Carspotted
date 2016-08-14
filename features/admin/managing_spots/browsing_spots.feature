@@ -12,7 +12,7 @@ Feature: Browsing spots
         And this user spotted also a model "NSX" made by "Honda"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Browsing spots
         When I want to browse spots
         Then I should see 2 spots in the list

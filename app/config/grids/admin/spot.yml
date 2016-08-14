@@ -1,0 +1,41 @@
+sylius_grid:
+    grids:
+        app_admin_spot:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: AppBundle\Entity\Spot
+            sorting:
+                createdAt: desc
+            fields:
+                id:
+                    type: string
+                    label: app.id
+                make:
+                    type: string
+                    path: make.name
+                    label: app.make
+                model:
+                    type: string
+                    path: model.name
+                    label: app.model
+                spotter:
+                    type: string
+                    path: spotter.username
+                    label: app.spotter
+                enabled:
+                    type: twig
+                    label: app.enabled
+                    options:
+                        template: :Grid/Field:enabled.html.twig
+                createdAt:
+                    type: datetime
+                    label: app.created_at
+                    options:
+                        format: d-m-Y H:i
+            actions:
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

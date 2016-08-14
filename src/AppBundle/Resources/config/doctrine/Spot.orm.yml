@@ -8,17 +8,22 @@ AppBundle\Entity\Spot:
     fields:
         description:
             type: string
+            nullable: true
         createdAt:
             column: created_at
             type: datetime
         lat:
             type: float
+            nullable: true
         lng:
             type: float
+            nullable: true
         country:
             type: string
+            nullable: true
         city:
             type: string
+            nullable: true
         illegiblePlate:
             column: illegible_plate
             type: boolean

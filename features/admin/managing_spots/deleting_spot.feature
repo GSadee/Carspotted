@@ -10,7 +10,7 @@ Feature: Deleting a spot
         And this user spotted a model "RS7" made by "Audi"
         And I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Deleting the spot
         When I delete this spot
         Then I should be notified that it has been successfully deleted

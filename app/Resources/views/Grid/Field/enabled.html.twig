@@ -1,0 +1,5 @@
+{% if data %}
+    <span class="label label-success">{{ 'app.enabled'|trans|lower }}</span>
+{% else %}
+    <span class="label label-danger">{{ 'app.disabled'|trans|lower }}</span>
+{% endif %}

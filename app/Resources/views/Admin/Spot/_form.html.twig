@@ -1,0 +1,71 @@
+<div class="form-group">
+    {{ form_errors(form.make) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.make) }}</label>
+    <div class="col-sm-11">
+        {{ form_widget(form.make, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.model) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.model) }}</label>
+    <div class="col-sm-11">
+        {{ form_widget(form.model, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.spotter) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.spotter) }}</label>
+    <div class="col-sm-11">
+        {{ form_widget(form.spotter, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.description) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.description) }}</label>
+    <div class="col-sm-11">
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.lat) }}
+    {{ form_errors(form.lng) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.lat) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.lat, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <label class="col-sm-1 control-label">{{ form_label(form.lng) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.lng, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.country) }}
+    {{ form_errors(form.city) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.country) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <label class="col-sm-1 control-label">{{ form_label(form.city) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.illegiblePlate) }}
+    {{ form_errors(form.licensePlate) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.illegiblePlate) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.illegiblePlate) }}
+    </div>
+    <label class="col-sm-1 control-label">{{ form_label(form.licensePlate) }}</label>
+    <div class="col-sm-5">
+        {{ form_widget(form.licensePlate, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="form-group">
+    {{ form_errors(form.enabled) }}
+    <label class="col-sm-1 control-label">{{ form_label(form.enabled) }}</label>
+    <div class="col-sm-11">
+        {{ form_widget(form.enabled) }}
+    </div>
+</div>

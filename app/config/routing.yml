@@ -3,6 +3,7 @@ app_ui:
 
 app_admin:
     resource: "routing/admin.yml"
+    prefix: /admin
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
