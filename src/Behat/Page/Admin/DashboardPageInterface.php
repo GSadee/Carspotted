@@ -13,4 +13,9 @@ interface DashboardPageInterface extends SymfonyPageInterface
      * @return string
      */
     public function getHeader();
+
+    /**
+     * @return int
+     */
+    public function countSpots();
 }

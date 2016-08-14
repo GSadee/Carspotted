@@ -11,6 +11,7 @@ sylius_resource:
         app.spot:
             classes:
                 model: AppBundle\Entity\Spot
+                repository: AppBundle\Doctrine\ORM\SpotRepository
                 form:
                     default: AppBundle\Form\Type\SpotType
         app.spotter:

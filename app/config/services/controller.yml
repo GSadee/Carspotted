@@ -1,8 +1,13 @@
 parameters:
+    app.controller.dashboard.class: AppBundle\Controller\Admin\DashboardController
     app.controller.homepage.class: AppBundle\Controller\HomepageController
 
 services:
     app.controller.homepage:
         class: '%app.controller.homepage.class%'
+        calls:
+            - [setContainer, ['@service_container']]
+    app.controller.dashboard:
+        class: '%app.controller.dashboard.class%'
         calls:
             - [setContainer, ['@service_container']]
