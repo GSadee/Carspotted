@@ -1,4 +1,4 @@
-@admin_dashboard
+@dashboard
 Feature: Viewing dashboard
     In order to have an overview of my website
     As an Administrator
