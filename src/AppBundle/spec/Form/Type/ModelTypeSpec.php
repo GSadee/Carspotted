@@ -5,12 +5,11 @@ namespace spec\AppBundle\Form\Type;
 use AppBundle\Form\Type\ModelType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * @mixin ModelType
@@ -42,7 +41,7 @@ final class ModelTypeSpec extends ObjectBehavior
     function it_should_build_form_with_proper_fields(FormBuilder $builder)
     {
         $builder
-            ->add('name', 'text', Argument::any())
+            ->add('name', TextType::class, Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

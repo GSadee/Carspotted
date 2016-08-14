@@ -6,6 +6,7 @@ use AppBundle\Entity\MakeInterface;
 use AppBundle\Entity\ModelInterface;
 use AppBundle\Entity\Spot;
 use AppBundle\Entity\SpotInterface;
+use AppBundle\Entity\SpotterInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -61,6 +62,17 @@ class SpotSpec extends ObjectBehavior
     {
         $this->setModel($model);
         $this->getModel()->shouldReturn($model);
+    }
+
+    function it_has_no_spotter_by_default()
+    {
+        $this->getSpotter()->shouldReturn(null);
+    }
+
+    function its_spotter_is_mutable(SpotterInterface $spotter)
+    {
+        $this->setSpotter($spotter);
+        $this->getSpotter()->shouldReturn($spotter);
     }
 
     function it_initializes_creation_date_by_default()
@@ -125,12 +137,23 @@ class SpotSpec extends ObjectBehavior
 
     function it_has_no_license_plate_by_default()
     {
-        $this->getLicencePlate()->shouldReturn(null);
+        $this->getLicensePlate()->shouldReturn(null);
     }
 
     function its_license_plate_is_mutable($licensePlate)
     {
-        $this->setLicencePlate($licensePlate);
-        $this->getLicencePlate()->shouldReturn($licensePlate);
+        $this->setLicensePlate($licensePlate);
+        $this->getLicensePlate()->shouldReturn($licensePlate);
+    }
+
+    function it_disabled_by_default()
+    {
+        $this->isEnabled()->shouldReturn(false);
+    }
+
+    function it_can_be_enabled($enabled)
+    {
+        $this->setEnabled($enabled);
+        $this->isEnabled()->shouldReturn($enabled);
     }
 }

@@ -28,6 +28,11 @@ class Spot implements SpotInterface
     private $model;
 
     /**
+     * @var SpotterInterface
+     */
+    private $spotter;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -61,6 +66,11 @@ class Spot implements SpotInterface
      * @var string
      */
     private $licensePlate;
+
+    /**
+     * @var bool
+     */
+    private $enabled = false;
 
     public function __construct()
     {
@@ -121,6 +131,22 @@ class Spot implements SpotInterface
     public function setModel($model)
     {
         $this->model = $model;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSpotter()
+    {
+        return $this->spotter;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSpotter($spotter)
+    {
+        $this->spotter = $spotter;
     }
 
     /**
@@ -222,7 +248,7 @@ class Spot implements SpotInterface
     /**
      * {@inheritdoc}
      */
-    public function getLicencePlate()
+    public function getLicensePlate()
     {
         return $this->licensePlate;
     }
@@ -230,8 +256,24 @@ class Spot implements SpotInterface
     /**
      * {@inheritdoc}
      */
-    public function setLicencePlate($licencePlate)
+    public function setLicensePlate($licensePlate)
     {
-        $this->licensePlate = $licencePlate;
+        $this->licensePlate = $licensePlate;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
     }
 }

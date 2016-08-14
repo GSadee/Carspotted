@@ -3,11 +3,15 @@ app:
     administration_panel: Administration panel
     cancel: Cancel
     create: Create
+    created_at: Created at
     dashboard: Dashboard
     delete: Delete
     edit: Edit
     edit_make: Edit make
     edit_model: Edit model
+    edit_spot: Edit spot
+    enabled: Enabled
+    disabled: Disabled
     home: Home
     id: Id
     log_out: Log out

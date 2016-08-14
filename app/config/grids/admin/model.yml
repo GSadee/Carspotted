@@ -12,10 +12,9 @@ sylius_grid:
                     type: string
                     label: app.id
                 make:
-                    type: twig
+                    type: string
+                    path: make.name
                     label: app.make
-                    options:
-                        template: :Grid/Field:make.html.twig
                 name:
                     type: string
                     label: app.name

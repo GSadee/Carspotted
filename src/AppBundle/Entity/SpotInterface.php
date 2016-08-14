@@ -40,6 +40,16 @@ interface SpotInterface extends ResourceInterface
     public function setModel($model);
 
     /**
+     * @return SpotterInterface
+     */
+    public function getSpotter();
+
+    /**
+     * @param SpotterInterface $spotter
+     */
+    public function setSpotter($spotter);
+
+    /**
      * @return \DateTime
      */
     public function getCreatedAt();
@@ -102,10 +112,20 @@ interface SpotInterface extends ResourceInterface
     /**
      * @return string
      */
-    public function getLicencePlate();
+    public function getLicensePlate();
 
     /**
-     * @param string $licencePlate
+     * @param string $licensePlate
      */
-    public function setLicencePlate($licencePlate);
+    public function setLicensePlate($licensePlate);
+
+    /**
+     * @return bool
+     */
+    public function isEnabled();
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled);
 }

@@ -1,0 +1,15 @@
+app_admin_spot:
+    resource: |
+        alias: app.spot
+        section: admin
+        templates: :Admin/Crud
+        except: ['show', 'create']
+        redirect: update
+        grid: app_admin_spot
+        permission: true
+        vars:
+            all:
+                subheader: app.manage_spots
+                templates:
+                    form: :Admin/Spot:_form.html.twig
+    type: sylius.resource

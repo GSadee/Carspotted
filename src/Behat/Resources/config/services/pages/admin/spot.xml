@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="app.behat.page.admin.spot.index.class">%app.behat.page.admin.crud.index.class%</parameter>
+        <parameter key="app.behat.page.admin.spot.update.class">Behat\Page\Admin\Spot\UpdatePage</parameter>
+    </parameters>
+
+    <services>
+        <service id="app.behat.page.admin.spot.index" class="%app.behat.page.admin.spot.index.class%" parent="app.behat.page.admin.crud.index" scope="scenario" public="false">
+            <argument type="string">spot</argument>
+        </service>
+        <service id="app.behat.page.admin.spot.update" class="%app.behat.page.admin.spot.update.class%" parent="app.behat.page.admin.crud.update" scope="scenario" public="false">
+            <argument type="string">spot</argument>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,19 @@
+default:
+    suites:
+        admin_managing_spots:
+            contexts_as_services:
+                - app.behat.context.hook.doctrine_orm
+
+                - app.behat.context.setup.model
+                - app.behat.context.setup.security
+                - app.behat.context.setup.spot
+                - app.behat.context.setup.spotter
+
+                - app.behat.context.transform.make
+                - app.behat.context.transform.model
+                - app.behat.context.transform.shared_storage
+
+                - app.behat.context.admin.managing_spots
+                - app.behat.context.admin.notification
+            filters:
+                tags: "@managing_spots && @ui"

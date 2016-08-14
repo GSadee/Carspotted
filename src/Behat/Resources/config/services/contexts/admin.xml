@@ -23,6 +23,12 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.admin.managing_spots" class="Behat\Context\Admin\ManagingSpotsContext" scope="scenario">
+            <argument type="service" id="app.behat.page.admin.spot.index" />
+            <argument type="service" id="app.behat.page.admin.spot.update" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.admin.notification" class="Behat\Context\Admin\NotificationContext" scope="scenario">
             <argument type="service" id="app.behat.notification_checker" />
             <tag name="app.behat.context" />

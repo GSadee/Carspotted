@@ -26,6 +26,7 @@ final class MakeContext implements Context
 
     /**
      * @Transform :make
+     * @Transform /^made by "([^"]*)"$/
      */
     public function getMakeByName($makeName)
     {

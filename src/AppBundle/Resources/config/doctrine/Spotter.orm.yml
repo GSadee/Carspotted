@@ -11,3 +11,8 @@ AppBundle\Entity\Spotter:
             column: salt
             type: string
             nullable: true
+    oneToMany:
+        spots:
+            targetEntity: AppBundle\Entity\Spot
+            mappedBy: spotter
+            cascade: ["persist", "remove"]

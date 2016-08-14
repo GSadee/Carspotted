@@ -35,5 +35,14 @@
             <argument type="service" id="fos_user.user_manager" container="symfony" />
             <tag name="app.behat.context" />
         </service>
+
+        <service id="app.behat.context.setup.spot" class="Behat\Context\Setup\SpotContext" scope="scenario">
+            <tag name="app.behat.context" />
+            <argument type="service" id="app.behat.shared_storage" />
+            <argument type="service" id="app.repository.spot" container="symfony" />
+            <argument type="service" id="app.factory.spot" container="symfony" />
+            <argument type="service" id="app.manager.spot" container="symfony" />
+            <tag name="app.behat.context" />
+        </service>
     </services>
 </container>

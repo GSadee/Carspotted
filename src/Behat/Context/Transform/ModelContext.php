@@ -26,6 +26,7 @@ final class ModelContext implements Context
 
     /**
      * @Transform :model
+     * @Transform /^model "([^"]*)"$/
      */
     public function getModelByName($modelName)
     {

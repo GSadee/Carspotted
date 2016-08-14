@@ -8,17 +8,22 @@ AppBundle\Entity\Spot:
     fields:
         description:
             type: string
+            nullable: true
         createdAt:
             column: created_at
             type: datetime
         lat:
             type: float
+            nullable: true
         lng:
             type: float
+            nullable: true
         country:
             type: string
+            nullable: true
         city:
             type: string
+            nullable: true
         illegiblePlate:
             column: illegible_plate
             type: boolean
@@ -26,6 +31,9 @@ AppBundle\Entity\Spot:
             column: license_plate
             type: string
             nullable: true
+        enabled:
+            column: enabled
+            type: boolean
     manyToOne:
         make:
             targetEntity: AppBundle\Entity\Make
@@ -37,5 +45,12 @@ AppBundle\Entity\Spot:
             targetEntity: AppBundle\Entity\Model
             joinColumn:
                 name: model_id
+                referencedColumnName: id
+                onDelete: "CASCADE"
+        spotter:
+            targetEntity: AppBundle\Entity\Spotter
+            inversedBy: spots
+            joinColumn:
+                name: spot_id
                 referencedColumnName: id
                 onDelete: "CASCADE"

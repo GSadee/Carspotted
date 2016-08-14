@@ -1,20 +1,21 @@
 app_admin:
-    path: /admin
+    path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
         path: /admin/dashboard
         permanent: true
 
 app_admin_dashboard:
-    path: /admin/dashboard
+    path: /dashboard
     defaults:
         _controller: app.controller.homepage:indexAction
         template: :Admin/Dashboard:index.html.twig
 
 app_admin_make:
     resource: "admin/make.yml"
-    prefix: /admin
 
 app_admin_model:
     resource: "admin/model.yml"
-    prefix: /admin
+
+app_admin_spot:
+    resource: "admin/spot.yml"
