@@ -7,7 +7,7 @@ Feature: Deleting a spot
     Background:
         Given there is a spotter "user" with an email "user@example.com" and a password "resu"
         And there is a model "RS7" made by "Audi"
-        And this user spotted a model "RS7" made by "Audi"
+        And this spotter spotted a model "RS7" made by "Audi"
         And I am logged in as an administrator
 
     @ui

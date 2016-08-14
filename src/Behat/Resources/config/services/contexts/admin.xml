@@ -29,6 +29,11 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.admin.managing_spotters" class="Behat\Context\Admin\ManagingSpottersContext" scope="scenario">
+            <argument type="service" id="app.behat.page.admin.spotter.index" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.admin.notification" class="Behat\Context\Admin\NotificationContext" scope="scenario">
             <argument type="service" id="app.behat.notification_checker" />
             <tag name="app.behat.context" />

@@ -13,3 +13,6 @@ sylius_resource:
                 model: AppBundle\Entity\Spot
                 form:
                     default: AppBundle\Form\Type\SpotType
+        app.spotter:
+            classes:
+                model: AppBundle\Entity\Spotter

@@ -5,6 +5,7 @@
         <import resource="admin/make.xml" />
         <import resource="admin/model.xml" />
         <import resource="admin/spot.xml" />
+        <import resource="admin/spotter.xml" />
     </imports>
 
     <parameters>

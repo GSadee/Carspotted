@@ -32,11 +32,19 @@ final class SpotterContext implements Context
     }
 
     /**
-     * @Given /^there is a (?:spotter|user) "([^"]*)" with an email "([^"]*)" and a password "([^"]*)"$/
+     * @Given /^there is(?:| also) a (?:spotter|user) "([^"]*)" with an email "([^"]*)" and a password "([^"]*)"$/
      */
     public function thereIsUserWithPassword($username, $email, $password)
     {
         $this->createSpotter($username, $email, $password, ['ROLE_USER']);
+    }
+
+    /**
+     * @Given /^there is(?:| also) an admin "([^"]*)" with an email "([^"]*)" and a password "([^"]*)"$/
+     */
+    public function thereIsAdminWithPassword($username, $email, $password)
+    {
+        $this->createSpotter($username, $email, $password, ['ROLE_ADMIN']);
     }
 
     /**
@@ -48,15 +56,15 @@ final class SpotterContext implements Context
      */
     private function createSpotter($username, $email, $password, $roles = [], $enabled = true)
     {
-        $user = $this->userManager->createUser();
-        $user->setUsername($username);
-        $user->setEmail($email);
-        $user->setPlainPassword($password);
-        $user->setRoles($roles);
-        $user->setEnabled($enabled);
+        $spotter = $this->userManager->createUser();
+        $spotter->setUsername($username);
+        $spotter->setEmail($email);
+        $spotter->setPlainPassword($password);
+        $spotter->setRoles($roles);
+        $spotter->setEnabled($enabled);
 
-        $this->sharedStorage->set('user', $user);
+        $this->sharedStorage->set('spotter', $spotter);
 
-        $this->userManager->updateUser($user);
+        $this->userManager->updateUser($spotter);
     }
 }

@@ -19,3 +19,6 @@ app_admin_model:
 
 app_admin_spot:
     resource: "admin/spot.yml"
+
+app_admin_spotter:
+    resource: "admin/spotter.yml"

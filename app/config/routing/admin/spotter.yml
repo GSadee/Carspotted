@@ -1,0 +1,13 @@
+app_admin_spotter:
+    resource: |
+        alias: app.spotter
+        section: admin
+        templates: :Admin/Crud
+        except: ['show', 'create', 'update']
+        redirect: index
+        grid: app_admin_spotter
+        permission: true
+        vars:
+            all:
+                subheader: app.manage_spotters
+    type: sylius.resource

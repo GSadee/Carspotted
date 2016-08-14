@@ -1,0 +1,5 @@
+{% if 'ROLE_ADMIN' in data %}
+    <span class="label label-primary">{{ 'app.administrator'|trans|lower }}</span>
+{% elseif 'ROLE_USER' in data %}
+    <span class="label label-info">{{ 'app.user'|trans|lower }}</span>
+{% endif %}
