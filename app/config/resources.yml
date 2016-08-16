@@ -3,6 +3,8 @@ sylius_resource:
         app.make:
             classes:
                 model: AppBundle\Entity\Make
+                form:
+                    default: AppBundle\Form\Type\MakeType
         app.model:
             classes:
                 model: AppBundle\Entity\Model

@@ -11,6 +11,7 @@ default:
             clean_start: false
             screenshot: true
         Behat\MinkExtension:
+            files_path: "%paths.base%/web/media/image/behat/"
             base_url: "http://localhost:8082/"
             default_session: symfony
             javascript_session: chrome

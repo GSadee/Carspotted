@@ -45,18 +45,18 @@ class SpotType extends AbstractResourceType
             ->add('enabled', CheckboxType::class, [
                 'required' => false,
             ])
-            ->add('make', EntityType::class, array(
+            ->add('make', EntityType::class, [
                 'class' => 'AppBundle\Entity\Make',
                 'choice_label' => 'name',
-            ))
-            ->add('model', EntityType::class, array(
+            ])
+            ->add('model', EntityType::class, [
                 'class' => 'AppBundle\Entity\Model',
                 'choice_label' => 'name',
-            ))
-            ->add('spotter', EntityType::class, array(
+            ])
+            ->add('spotter', EntityType::class, [
                 'class' => 'AppBundle\Entity\Spotter',
                 'choice_label' => 'username',
-            ))
+            ])
         ;
     }
 

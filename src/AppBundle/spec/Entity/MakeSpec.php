@@ -66,4 +66,30 @@ class MakeSpec extends ObjectBehavior
 
         $this->hasModel($model)->shouldReturn(false);
     }
+
+    function it_has_no_file_by_default()
+    {
+        $this->hasFile()->shouldReturn(false);
+        $this->getFile()->shouldReturn(null);
+    }
+
+    function its_file_is_mutable()
+    {
+        $file = new \SplFileInfo(__FILE__);
+        $this->setFile($file);
+        $this->getFile()->shouldReturn($file);
+    }
+
+    function it_has_no_path_by_default()
+    {
+        $this->hasPath()->shouldReturn(false);
+        $this->getPath()->shouldReturn(null);
+    }
+
+    function its_path_is_mutable()
+    {
+        $path = __FILE__;
+        $this->setPath($path);
+        $this->getPath()->shouldReturn($path);
+    }
 }

@@ -7,7 +7,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-interface MakeInterface extends ResourceInterface, ModelAwareInterface
+interface MakeInterface extends ResourceInterface, ModelAwareInterface, ImageInterface
 {
     /**
      * @return string

@@ -1,24 +1,28 @@
 AppBundle\Entity\Model:
-    model1:
+    model_rs6:
         name: RS6
-        make: @make1
+        make: @make_audi
 
-    model2:
+    model_rs7:
         name: RS7
-        make: @make1
+        make: @make_audi
 
-    model3:
+    model_focus_rs:
         name: Focus RS
-        make: @make2
+        make: @make_ford
 
-    model4:
+    model_nsx:
         name: NSX
-        make: @make3
+        make: @make_honda
 
-    model5:
+    model_aventador:
+        name: Aventador
+        make: @make_lamborghini
+
+    model_gt:
         name: GT
-        make: @make4
+        make: @make_opel
 
-    model6:
+    model_gt86:
         name: GT86
-        make: @make5
+        make: @make_toyota

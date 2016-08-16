@@ -15,6 +15,10 @@
 /web/uploads/
 
 /web/assets/vendor/
+/web/media/cache
+/web/media/image/*
+!/web/media/image/behat
+!/web/media/image/fixtures
 
 /app/phpunit.xml
 /phpunit.xml

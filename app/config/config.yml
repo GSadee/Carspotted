@@ -60,3 +60,23 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\Spotter
+
+knp_gaufrette:
+    adapters:
+        app_image:
+            local:
+                directory: "%kernel.root_dir%/../web/media/image"
+                create: true
+    filesystems:
+        app_image:
+            adapter: app_image
+
+liip_imagine:
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.root_dir%/../web/media/image"
+    filter_sets:
+        app_make_logo_thumbnail:
+            filters:
+                thumbnail: { size: [64, 64], mode: inset }

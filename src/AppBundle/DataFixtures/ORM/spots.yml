@@ -1,8 +1,8 @@
 AppBundle\Entity\Spot:
     spot1:
         description: <sentence()>
-        make: @make1
-        model: @model1
+        make: @make_audi
+        model: @model_rs6
         spotter: @spotter1
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
@@ -14,8 +14,8 @@ AppBundle\Entity\Spot:
 
     spot2:
         description: <sentence()>
-        make: @make1
-        model: @model2
+        make: @make_audi
+        model: @model_rs7
         spotter: @spotter2
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
@@ -27,8 +27,8 @@ AppBundle\Entity\Spot:
 
     spot3:
         description: <sentence()>
-        make: @make3
-        model: @model4
+        make: @make_honda
+        model: @model_nsx
         spotter: @spotter2
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>
@@ -40,8 +40,21 @@ AppBundle\Entity\Spot:
 
     spot4:
         description: <sentence()>
-        make: @make5
-        model: @model6
+        make: @make_lamborghini
+        model: @model_aventador
+        spotter: @spotter3
+        createdAt: <dateTimeBetween('-2 years', 'now')>
+        lat: <latitude()>
+        lng: <longitude()>
+        country: <country()>
+        city: <city()>
+        illegiblePlate: false
+        enabled: true
+
+    spot4:
+        description: <sentence()>
+        make: @make_toyota
+        model: @model_gt86
         spotter: @spotter3
         createdAt: <dateTimeBetween('-2 years', 'now')>
         lat: <latitude()>

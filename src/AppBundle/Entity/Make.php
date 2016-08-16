@@ -25,6 +25,16 @@ class Make implements MakeInterface
      */
     private $models;
 
+    /**
+     * @var \SplFileInfo
+     */
+    private $file;
+
+    /**
+     * @var string
+     */
+    private $path;
+
     public function __construct()
     {
         $this->models = new ArrayCollection();
@@ -96,5 +106,53 @@ class Make implements MakeInterface
     public function hasModel(ModelInterface $model)
     {
         return $this->models->contains($model);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasFile()
+    {
+        return null !== $this->file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setFile(\SplFileInfo $file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasPath()
+    {
+        return null !== $this->path;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
     }
 }

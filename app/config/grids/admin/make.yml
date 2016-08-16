@@ -11,6 +11,12 @@ sylius_grid:
                 id:
                     type: string
                     label: app.id
+                logo:
+                    type: twig
+                    label: app.logo
+                    path: .
+                    options:
+                        template: :Admin/Make/Field:logo.html.twig
                 name:
                     type: string
                     label: app.name

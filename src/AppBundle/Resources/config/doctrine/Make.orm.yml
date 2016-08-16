@@ -8,6 +8,9 @@ AppBundle\Entity\Make:
     fields:
         name:
             type: string
+        path:
+            type: string
+            nullable: true
     oneToMany:
         models:
             targetEntity: AppBundle\Entity\Model

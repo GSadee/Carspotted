@@ -3,14 +3,14 @@
 namespace AppBundle\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-class ModelType extends AbstractResourceType
+class MakeType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -19,9 +19,8 @@ class ModelType extends AbstractResourceType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('make', EntityType::class, [
-                'class' => 'AppBundle\Entity\Make',
-                'choice_label' => 'name',
+            ->add('file', FileType::class, [
+                'label' => 'app.logo',
             ])
         ;
     }
@@ -31,6 +30,6 @@ class ModelType extends AbstractResourceType
      */
     public function getName()
     {
-        return 'app_model';
+        return 'app_make';
     }
 }

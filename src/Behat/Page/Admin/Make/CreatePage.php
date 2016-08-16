@@ -11,11 +11,20 @@ use Behat\Page\Admin\Crud\CreatePage as BaseCreatePage;
 class CreatePage extends BaseCreatePage implements CreatePageInterface
 {
     /**
-     * @param string $name
+     * {@inheritdoc}
      */
     public function specifyName($name)
     {
         $this->getDocument()->fillField('Name', $name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attachLogo($path)
+    {
+        $filesPath = $this->getParameter('files_path');
+        $this->getDocument()->attachFileToField('Logo', $filesPath.'logos/'.$path);
     }
 
     /**

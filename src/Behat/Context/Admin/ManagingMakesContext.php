@@ -8,6 +8,7 @@ use Behat\Page\Admin\Crud\IndexPageInterface;
 use Behat\Page\Admin\Make\CreatePageInterface;
 use Behat\Page\Admin\Make\UpdatePageInterface;
 use Behat\Service\Resolver\CurrentPageResolverInterface;
+use Behat\Service\SharedStorageInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -15,6 +16,11 @@ use Webmozart\Assert\Assert;
  */
 final class ManagingMakesContext extends BaseContext
 {
+    /**
+     * @var SharedStorageInterface
+     */
+    private $sharedStorage;
+
     /**
      * @var IndexPageInterface
      */
@@ -36,17 +42,20 @@ final class ManagingMakesContext extends BaseContext
     private $currentPageResolver;
 
     /**
+     * @param SharedStorageInterface $sharedStorage
      * @param IndexPageInterface $indexPage
      * @param CreatePageInterface $createPage
      * @param UpdatePageInterface $updatePage
      * @param CurrentPageResolverInterface $currentPageResolver
      */
     public function __construct(
+        SharedStorageInterface $sharedStorage,
         IndexPageInterface $indexPage,
         CreatePageInterface $createPage,
         UpdatePageInterface $updatePage,
         CurrentPageResolverInterface $currentPageResolver
     ) {
+        $this->sharedStorage = $sharedStorage;
         $this->indexPage = $indexPage;
         $this->createPage = $createPage;
         $this->updatePage = $updatePage;
@@ -76,18 +85,20 @@ final class ManagingMakesContext extends BaseContext
     }
 
     /**
-     * @Then I should see the make named :makeName in the list
-     * @Then the make :makeName should appear in the registry
-     * @Then there should still be only one make with name :makeName
+     * @Then I should see the make named :make in the list
+     * @Then the make :make should appear in the registry
+     * @Then there should still be only one make with name :make
      */
-    public function iShouldSeeTheMakeInTheList($makeName)
+    public function iShouldSeeTheMakeInTheList(MakeInterface $make)
     {
         $this->iWantToBrowseMakes();
 
         Assert::true(
-            $this->indexPage->isSingleResourceOnPage(['name' => $makeName]),
-            sprintf('Make with name %s has not been found.', $makeName)
+            $this->indexPage->isSingleResourceOnPage(['name' => $make->getName()]),
+            sprintf('Make with name %s has not been found.', $make->getName())
         );
+
+        $this->sharedStorage->set('make', $make);
     }
 
     /**
@@ -210,5 +221,24 @@ final class ManagingMakesContext extends BaseContext
         $currentPage = $this->currentPageResolver->getCurrentPageWithForm([$this->createPage, $this->updatePage]);
 
         $this->assertFieldValidationMessage($currentPage, 'name', 'The make with given name already exists.');
+    }
+
+    /**
+     * @When I attach the logo :path
+     */
+    public function iAttachTheLogo($path)
+    {
+        $this->createPage->attachLogo($path);
+    }
+
+    /**
+     * @Then /^(this make) should have a logo$/
+     */
+    public function thisMakeShouldHaveALogo(MakeInterface $make)
+    {
+        Assert::notNull(
+            $make->getPath(),
+            sprintf('Make %s does not have a logo.', $make->getName())
+        );
     }
 }
