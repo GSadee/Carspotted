@@ -7,7 +7,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
-interface SpotInterface extends ResourceInterface
+interface SpotInterface extends ResourceInterface, PhotoAwareInterface
 {
     /**
      * @return string

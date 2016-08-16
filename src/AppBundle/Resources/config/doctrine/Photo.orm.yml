@@ -1,0 +1,18 @@
+AppBundle\Entity\Photo:
+    type: entity
+    table: photo
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        path:
+            type: string
+    manyToOne:
+        spot:
+            targetEntity: AppBundle\Entity\Spot
+            inversedBy: images
+            joinColumn:
+                name: spot_id
+                referencedColumnName: id
+                onDelete: "CASCADE"

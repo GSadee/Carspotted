@@ -54,3 +54,8 @@ AppBundle\Entity\Spot:
                 name: spot_id
                 referencedColumnName: id
                 onDelete: "CASCADE"
+    oneToMany:
+        photos:
+            targetEntity: AppBundle\Entity\Photo
+            mappedBy: spot
+            cascade: ["all"]

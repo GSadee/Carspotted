@@ -11,6 +11,12 @@ sylius_grid:
                 id:
                     type: string
                     label: app.id
+                photo:
+                    type: twig
+                    label: app.photo
+                    path: .
+                    options:
+                        template: :Admin/Spot/Field:photo.html.twig
                 make:
                     type: string
                     path: make.name

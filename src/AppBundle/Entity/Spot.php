@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Grzegorz Sadowski <sadowskigp@gmail.com>
  */
@@ -31,6 +34,11 @@ class Spot implements SpotInterface
      * @var SpotterInterface
      */
     private $spotter;
+
+    /**
+     * @var Collection|PhotoInterface[]
+     */
+    private $photos;
 
     /**
      * @var \DateTime
@@ -74,6 +82,7 @@ class Spot implements SpotInterface
 
     public function __construct()
     {
+        $this->photos = new ArrayCollection();
         $this->createdAt = new \DateTime();
     }
 
@@ -147,6 +156,62 @@ class Spot implements SpotInterface
     public function setSpotter($spotter)
     {
         $this->spotter = $spotter;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPhotos(Collection $photos)
+    {
+        $this->photos = $photos;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPhoto()
+    {
+        if ($this->photos->isEmpty()) {
+            return null;
+        }
+
+        return $this->photos->first();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addPhoto(PhotoInterface $photo)
+    {
+        if (!$this->hasPhoto($photo)) {
+            $photo->setSpot($this);
+            $this->photos->add($photo);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removePhoto(PhotoInterface $photo)
+    {
+        $photo->setSpot(null);
+        $this->photos->removeElement($photo);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasPhoto(PhotoInterface $photo)
+    {
+        return $this->photos->contains($photo);
     }
 
     /**
