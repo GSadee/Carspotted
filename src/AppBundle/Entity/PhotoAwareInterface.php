@@ -20,9 +20,9 @@ interface PhotoAwareInterface
     public function setPhotos(Collection $photos);
 
     /**
-     * @return  PhotoInterface
+     * @return PhotoInterface
      */
-    public function getPhoto();
+    public function getFirstPhoto();
 
     /**
      * @param PhotoInterface $photo

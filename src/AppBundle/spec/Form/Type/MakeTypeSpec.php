@@ -8,7 +8,7 @@ use Prophecy\Argument;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
 
 /**
@@ -38,7 +38,7 @@ final class MakeTypeSpec extends ObjectBehavior
         $this->shouldImplement(AbstractResourceType::class);
     }
 
-    function it_should_build_form_with_proper_fields(FormBuilder $builder)
+    function it_builds_form_with_proper_fields(FormBuilderInterface $builder)
     {
         $builder
             ->add('name', TextType::class, Argument::any())

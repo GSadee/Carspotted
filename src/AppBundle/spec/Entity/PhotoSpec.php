@@ -50,9 +50,8 @@ class PhotoSpec extends ObjectBehavior
 
     function its_path_is_mutable()
     {
-        $path = __FILE__;
-        $this->setPath($path);
-        $this->getPath()->shouldReturn($path);
+        $this->setPath('test/image.jpg');
+        $this->getPath()->shouldReturn('test/image.jpg');
     }
 
     function it_has_no_spot_by_default()

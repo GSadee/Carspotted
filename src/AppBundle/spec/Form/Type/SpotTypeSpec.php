@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
 
 /**
@@ -41,7 +41,7 @@ final class SpotTypeSpec extends ObjectBehavior
         $this->shouldImplement(AbstractResourceType::class);
     }
 
-    function it_should_build_form_with_proper_fields(FormBuilder $builder)
+    function it_builds_form_with_proper_fields(FormBuilderInterface $builder)
     {
         $builder
             ->add('description', TextAreaType::class, Argument::any())
