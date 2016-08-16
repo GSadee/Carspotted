@@ -177,7 +177,7 @@ class Spot implements SpotInterface
     /**
      * {@inheritdoc}
      */
-    public function getPhoto()
+    public function getFirstPhoto()
     {
         if ($this->photos->isEmpty()) {
             return null;

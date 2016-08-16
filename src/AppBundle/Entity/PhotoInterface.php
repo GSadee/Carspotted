@@ -15,7 +15,7 @@ interface PhotoInterface extends ResourceInterface, ImageInterface
     public function getSpot();
 
     /**
-     * @param null|SpotInterface $spot
+     * @param SpotInterface|null $spot
      */
     public function setSpot(SpotInterface $spot = null);
 }
