@@ -1,0 +1,12 @@
+AppBundle\Entity\Photo:
+    photo_rs6:
+        path: fixtures/photos/rs6.jpg
+
+    photo_rs7:
+        path: fixtures/photos/rs7.jpg
+
+    photo_aventador:
+        path: fixtures/photos/aventador.jpg
+
+    photo_gt86:
+        path: fixtures/photos/gt86.jpg

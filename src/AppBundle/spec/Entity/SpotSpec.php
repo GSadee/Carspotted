@@ -4,9 +4,11 @@ namespace spec\AppBundle\Entity;
 
 use AppBundle\Entity\MakeInterface;
 use AppBundle\Entity\ModelInterface;
+use AppBundle\Entity\PhotoInterface;
 use AppBundle\Entity\Spot;
 use AppBundle\Entity\SpotInterface;
 use AppBundle\Entity\SpotterInterface;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -73,6 +75,32 @@ class SpotSpec extends ObjectBehavior
     {
         $this->setSpotter($spotter);
         $this->getSpotter()->shouldReturn($spotter);
+    }
+
+    function it_initializes_photo_collection_by_default()
+    {
+        $this->getPhotos()->shouldHaveType(Collection::class);
+    }
+
+    function its_photos_are_mutable(Collection $photos)
+    {
+        $this->setPhotos($photos);
+        $this->getPhotos()->shouldReturn($photos);
+    }
+
+    function it_adds_photo(PhotoInterface $photo)
+    {
+        $this->addPhoto($photo);
+
+        $this->hasPhoto($photo)->shouldReturn(true);
+    }
+
+    function it_removes_photo(PhotoInterface $photo)
+    {
+        $this->addPhoto($photo);
+        $this->removePhoto($photo);
+
+        $this->hasPhoto($photo)->shouldReturn(false);
     }
 
     function it_initializes_creation_date_by_default()

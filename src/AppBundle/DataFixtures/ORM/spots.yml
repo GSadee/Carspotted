@@ -11,6 +11,7 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
+        addPhoto: [@photo_rs6]
 
     spot2:
         description: <sentence()>
@@ -24,6 +25,7 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
+        addPhoto: [@photo_rs7]
 
     spot3:
         description: <sentence()>
@@ -36,7 +38,7 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
-        enabled: true
+        enabled: false
 
     spot4:
         description: <sentence()>
@@ -50,8 +52,9 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
+        addPhoto: [@photo_aventador]
 
-    spot4:
+    spot5:
         description: <sentence()>
         make: @make_toyota
         model: @model_gt86
@@ -62,4 +65,5 @@ AppBundle\Entity\Spot:
         country: <country()>
         city: <city()>
         illegiblePlate: false
-        enabled: false
+        enabled: true
+        addPhoto: [@photo_gt86]

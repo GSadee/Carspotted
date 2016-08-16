@@ -23,6 +23,8 @@
             <argument type="service" id="app.image_uploader" />
             <tag name="kernel.event_listener" event="app.make.pre_create" method="uploadImage" />
             <tag name="kernel.event_listener" event="app.make.pre_update" method="uploadImage" />
+            <tag name="kernel.event_listener" event="app.spot.pre_create" method="uploadSpotPhoto" />
+            <tag name="kernel.event_listener" event="app.spot.pre_update" method="uploadSpotPhoto" />
         </service>
     </services>
 </container>

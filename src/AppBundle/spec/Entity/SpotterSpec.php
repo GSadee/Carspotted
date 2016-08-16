@@ -48,7 +48,7 @@ class SpotterSpec extends ObjectBehavior
         $this->hasSpot($spot)->shouldReturn(true);
     }
 
-    function it_removes_model(SpotInterface $spot)
+    function it_removes_spot(SpotInterface $spot)
     {
         $this->addSpot($spot);
         $this->removeSpot($spot);
