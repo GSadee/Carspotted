@@ -16,8 +16,10 @@ app:
     disabled: Disabled
     home: Home
     id: Id
+    image: Image
     last_login: Last login
     log_out: Log out
+    logo: Logo
     make: Make
     makes: Makes
     manage_makes: Manage makes
@@ -30,6 +32,7 @@ app:
     new_make: New make
     new_model: New model
     no_results_to_display: No results to display
+    photo: Photo
     recent_spots: Recent spots
     register: Register
     role: Role
