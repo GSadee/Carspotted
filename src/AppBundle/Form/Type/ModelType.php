@@ -19,10 +19,10 @@ class ModelType extends AbstractResourceType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('make', EntityType::class, array(
+            ->add('make', EntityType::class, [
                 'class' => 'AppBundle\Entity\Make',
                 'choice_label' => 'name',
-            ))
+            ])
         ;
     }
 
