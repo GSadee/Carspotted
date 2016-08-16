@@ -7,7 +7,7 @@ Feature: Adding a new make with a logo
     Background:
         Given I am logged in as an administrator
 
-    @todo
+    @ui
     Scenario: Adding a new make with a logo
         When I want to add a new make
         And I specify the name as "Lamborghini"

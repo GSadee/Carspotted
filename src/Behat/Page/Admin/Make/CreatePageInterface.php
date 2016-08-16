@@ -13,4 +13,9 @@ interface CreatePageInterface extends BaseCreatePageInterface
      * @param string $name
      */
     public function specifyName($name);
+
+    /**
+     * @param string $path
+     */
+    public function attachLogo($path);
 }
