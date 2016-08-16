@@ -79,4 +79,4 @@ liip_imagine:
     filter_sets:
         app_make_logo_thumbnail:
             filters:
-                thumbnail: { size: [64, 64], mode: outbound }
+                thumbnail: { size: [64, 64], mode: inset }

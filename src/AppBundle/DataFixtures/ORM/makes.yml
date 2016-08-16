@@ -1,15 +1,28 @@
 AppBundle\Entity\Make:
-    make1:
+    make_audi:
         name: Audi
+        path: fixtures/logos/audi.png
 
-    make2:
+    make_ford:
         name: Ford
+        path: fixtures/logos/ford.png
 
-    make3:
+    make_honda:
         name: Honda
+        path: fixtures/logos/honda.png
 
-    make4:
+    make_lamborghini:
+        name: Lamborghini
+        path: fixtures/logos/lamborghini.png
+
+    make_opel:
         name: Opel
+        path: fixtures/logos/opel.png
 
-    make5:
+    make_pagani:
+        name: Pagani
+        path: fixtures/logos/pagani.png
+
+    make_toyota:
         name: Toyota
+        path: fixtures/logos/toyota.png
