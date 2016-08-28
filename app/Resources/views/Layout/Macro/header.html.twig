@@ -3,16 +3,16 @@
         <h1 id="logo"><a href="{{ path('app_homepage') }}">Carspotted</a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="{{ path('app_homepage') }}">Home</a></li>
-                {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('app_admin_dashboard') }}">Administration panel</a></li>
+                <li><a href="{{ path('app_homepage') }}">{{ 'app.home'|trans }}</a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('app_admin_dashboard') }}">{{ 'app.administration_panel'|trans }}</a></li>
                 {% endif %}
 
                 {% if is_granted('ROLE_USER') %}
-                    <li id="logout"><a href="{{ path('fos_user_security_logout') }}">Log out</a></li>
+                    <li id="logout"><a href="{{ path('fos_user_security_logout') }}">{{ 'app.log_out'|trans }}</a></li>
                 {% else %}
-                    <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
-                    <li id="login"><a href="{{ path('fos_user_security_login') }}">Sign in</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">{{ 'app.register'|trans }}</a></li>
+                    <li id="login"><a href="{{ path('fos_user_security_login') }}">{{ 'app.sign_in'|trans }}</a></li>
                 {% endif %}
             </ul>
         </nav>
