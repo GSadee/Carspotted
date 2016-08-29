@@ -54,4 +54,18 @@ final class HomeContext extends BaseContext
             'The text: %2$s cannot be found on page.'
         );
     }
+
+    /**
+     * @Then I should see only the :numberOfLatestSpots newest spots in the list
+     */
+    public function iShouldSeeOnlyTheNewestSpotsInTheList($numberOfLatestSpots)
+    {
+        $foundRows = $this->homePage->countSpots();
+
+        Assert::eq(
+            $numberOfLatestSpots,
+            $foundRows,
+            '%s posts with spots should appear on page, %s posts has been found'
+        );
+    }
 }

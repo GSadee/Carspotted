@@ -16,4 +16,9 @@ interface HomePageInterface extends SymfonyPageInterface
      * @return bool
      */
     public function hasLogoutButton();
+
+    /**
+     * @return int
+     */
+    public function countSpots();
 }
