@@ -74,6 +74,14 @@ final class SpotContext implements Context
     }
 
     /**
+     * @Given /^(this spotter) spotted(?:| also) a (model "[^"]*") (made by "[^"]*") which is enabled$/
+     */
+    public function thisUserSpottedAModelMadeByWhichIsEnabled(SpotterInterface $spotter, ModelInterface $model, MakeInterface $make)
+    {
+        $this->createSpot($make, $model, $spotter, true);
+    }
+
+    /**
      * @param MakeInterface $make
      * @param ModelInterface $model
      * @param SpotterInterface $spotter

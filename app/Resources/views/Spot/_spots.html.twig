@@ -1,0 +1,33 @@
+{% import ':Macro:pagination.html.twig' as pagination %}
+
+<section id="spots">
+    <div class="table-wrapper">
+        <table class="alt">
+            <thead>
+            <tr>
+                <th>{{ 'app.id'|trans }}</th>
+                <th>{{ 'app.photo'|trans }}</th>
+                <th>{{ 'app.car'|trans }}</th>
+                <th>{{ 'app.spotter'|trans }}</th>
+                <th>{{ 'app.created_at'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for spot in spots %}
+            <tr>
+                <td>{{ spot.id }}</td>
+                <td>
+                    {% set path = spot.firstPhoto is not null ? spot.firstPhoto.path|imagine_filter('app_spot_photo_thumbnail') : 'http://placehold.it/96x64' %}
+                    <img src="{{ path }}" class="img-responsive">
+                </td>
+                <td>{{ spot.make.name }} {{ spot.model.name }}</td>
+                <td>{{ spot.spotter.username }}</td>
+                <td>{{ spot.createdAt|date('d-m-Y H:i') }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {{ pagination.render(spots) }}
+    </div>
+</section>

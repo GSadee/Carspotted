@@ -4,6 +4,7 @@
     <imports>
         <import resource="pages/account.xml" />
         <import resource="pages/admin.xml" />
+        <import resource="pages/spot.xml" />
     </imports>
 
     <parameters>

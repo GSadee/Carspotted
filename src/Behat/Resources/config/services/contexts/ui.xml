@@ -20,5 +20,10 @@
             <argument type="service" id="app.behat.shared_storage" />
             <tag name="app.behat.context" />
         </service>
+
+        <service id="app.behat.context.ui.spot" class="Behat\Context\Ui\SpotContext" scope="scenario">
+            <argument type="service" id="app.behat.page.spot.index" />
+            <tag name="app.behat.context" />
+        </service>
     </services>
 </container>

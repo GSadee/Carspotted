@@ -2,6 +2,7 @@
 
 namespace AppBundle\Doctrine\ORM;
 
+use Pagerfanta\Pagerfanta;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 /**
@@ -15,4 +16,9 @@ interface SpotRepositoryInterface extends RepositoryInterface
      * @return array
      */
     public function findByCreatedAt($limit = 10);
+
+    /**
+     * @return Pagerfanta
+     */
+    public function createEnabledPaginator();
 }

@@ -3,3 +3,6 @@ app_homepage:
     defaults:
         _controller: app.controller.homepage:indexAction
         template: :Homepage:index.html.twig
+
+app_spot:
+    resource: "ui/spot.yml"
