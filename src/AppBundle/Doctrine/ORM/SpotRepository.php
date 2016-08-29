@@ -14,14 +14,12 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
      */
     public function findByCreatedAt($limit = 10)
     {
-        $queryBuilder = $this->createQueryBuilder('o');
-
-        $queryBuilder
+        return $this->createQueryBuilder('o')
             ->addOrderBy('o.createdAt', 'DESC')
             ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
         ;
-
-        return $queryBuilder->getQuery()->getResult();
     }
 
     /**
@@ -54,5 +52,19 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
         ;
 
         return $this->getPaginator($queryBuilder);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findLatest($limit = 4)
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.enabled = true')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }

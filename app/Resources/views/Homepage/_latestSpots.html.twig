@@ -1,0 +1,22 @@
+<section class="wrapper">
+    <div class="inner">
+        <header class="major">
+            <h2>{{ 'app.latest_spots'|trans }}</h2>
+            <p>{{ 'app.latest_spots.description'|trans }}</p>
+        </header>
+        <div id="latest-spots" class="posts">
+            {% for spot in spots %}
+                <section class="post">
+                    {% set path = spot.firstPhoto is not null ? spot.firstPhoto.path|imagine_filter('app_spot_photo_post') : 'http://placehold.it/208x213' %}
+                    <a href="#" class="image"><img src="{{ path }}" /></a>
+                    <div class="content">
+                        <h3>{{ spot.make.name }} {{ spot.model.name }}</h3>
+                        <h6>{{ spot.spotter.username }}</h6>
+                        <p>{{ spot.description }}</p>
+                        <a href="#" class="button">{{ 'app.details'|trans }}</a>
+                    </div>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+</section>
