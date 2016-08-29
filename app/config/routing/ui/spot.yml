@@ -7,3 +7,14 @@ app_spot_index:
             template: :Spot:index.html.twig
             repository:
                 method: createEnabledPaginator
+
+app_spot_index_by_spotter:
+    path: /my-spots
+    methods: [GET]
+    defaults:
+        _controller: app.controller.spot:indexAction
+        _sylius:
+            template: :Spot:index.html.twig
+            repository:
+                method: createEnabledBySpotterPaginator
+                arguments: ["expr:service('security.context').getToken().getUser()"]
