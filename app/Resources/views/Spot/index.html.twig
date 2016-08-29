@@ -1,0 +1,15 @@
+{% extends ':Layout:base.html.twig' %}
+
+{% block title %}Carspotted{% endblock %}
+
+{% block content %}
+    <section class="wrapper">
+        <div class="inner">
+            <header class="major">
+                <h2>{{ 'app.spots'|trans }}</h2>
+            </header>
+
+            {% include ':Spot:_spots.html.twig' %}
+        </div>
+    </section>
+{% endblock %}

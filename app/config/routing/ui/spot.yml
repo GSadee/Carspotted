@@ -1,0 +1,9 @@
+app_spot_index:
+    path: /spots
+    methods: [GET]
+    defaults:
+        _controller: app.controller.spot:indexAction
+        _sylius:
+            template: :Spot:index.html.twig
+            repository:
+                method: createEnabledPaginator

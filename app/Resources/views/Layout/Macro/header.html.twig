@@ -4,6 +4,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="{{ path('app_homepage') }}">{{ 'app.home'|trans }}</a></li>
+                <li><a href="{{ path('app_spot_index') }}">{{ 'app.spots'|trans }}</a></li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="{{ path('app_admin_dashboard') }}">{{ 'app.administration_panel'|trans }}</a></li>
                 {% endif %}

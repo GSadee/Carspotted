@@ -3,6 +3,7 @@ app:
     administration_panel: Administration panel
     administrator: Administrator
     cancel: Cancel
+    car: Car
     create: Create
     created_at: Created at
     dashboard: Dashboard

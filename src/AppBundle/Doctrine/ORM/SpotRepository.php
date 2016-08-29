@@ -22,4 +22,19 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
 
         return $queryBuilder->getQuery()->getResult();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createEnabledPaginator()
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        $queryBuilder
+            ->where('o.enabled = true')
+            ->addOrderBy('o.createdAt', 'DESC')
+        ;
+
+        return $this->getPaginator($queryBuilder);
+    }
 }
