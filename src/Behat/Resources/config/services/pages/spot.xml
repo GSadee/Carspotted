@@ -3,10 +3,15 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
         <parameter key="app.behat.page.spot.index.class">Behat\Page\Spot\IndexPage</parameter>
+        <parameter key="app.behat.page.spot.index_by_spotter.class">Behat\Page\Spot\IndexBySpotterPage</parameter>
     </parameters>
 
     <services>
         <service id="app.behat.page.spot.index" class="%app.behat.page.spot.index.class%" parent="app.behat.symfony_page" scope="scenario" public="false">
+            <argument type="service" id="app.behat.table_accessor" />
+        </service>
+
+        <service id="app.behat.page.spot.index_by_spotter" class="%app.behat.page.spot.index_by_spotter.class%" parent="app.behat.symfony_page" scope="scenario" public="false">
             <argument type="service" id="app.behat.table_accessor" />
         </service>
     </services>

@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Doctrine\ORM;
+use AppBundle\Entity\SpotterInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 /**
@@ -33,6 +34,23 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
         $queryBuilder
             ->where('o.enabled = true')
             ->addOrderBy('o.createdAt', 'DESC')
+        ;
+
+        return $this->getPaginator($queryBuilder);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createEnabledBySpotterPaginator(SpotterInterface $spotter)
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        $queryBuilder
+            ->where('o.spotter = :spotter')
+            ->andWhere('o.enabled = true')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setParameter('spotter', $spotter)
         ;
 
         return $this->getPaginator($queryBuilder);

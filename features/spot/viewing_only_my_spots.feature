@@ -1,6 +1,6 @@
 @spot
 Feature: Viewing list of my spots
-    In order to see history of my spots
+    In order to see the history of my spots
     As a Spotter
     I want to be able to browse my spots
 
@@ -8,12 +8,12 @@ Feature: Viewing list of my spots
         Given there is a model "RS7" made by "Audi"
         And there is also a model "NSX" made by "Honda"
         And there is a spotter "user" with an email "user@example.com"
-        And this spotter spotted a model "RS7" made by "Audi"
+        And this spotter spotted a model "RS7" made by "Audi" which is enabled
         And there is also a spotter "spotter" with an email "spotter@example.com"
-        And this spotter spotted a model "NSX" made by "Honda"
-        And I am logged in as "user@example.com"
+        And this spotter spotted a model "NSX" made by "Honda" which is enabled
+        And I am logged in as "user"
 
-    @todo
+    @ui
     Scenario: Viewing list of my spots
         When I want to browse my spots
         Then I should see a single spot in the list

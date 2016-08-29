@@ -5,6 +5,7 @@ default:
                 - app.behat.context.hook.doctrine_orm
 
                 - app.behat.context.setup.model
+                - app.behat.context.setup.security
                 - app.behat.context.setup.spot
                 - app.behat.context.setup.spotter
 

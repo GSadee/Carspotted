@@ -29,6 +29,7 @@ app:
     manage_spotters: Manage spotters
     model: Model
     models: Models
+    my_spots: My spots
     name: Name
     new_make: New make
     new_model: New model
