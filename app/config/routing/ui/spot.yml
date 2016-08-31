@@ -18,3 +18,11 @@ app_spot_index_by_spotter:
             repository:
                 method: createEnabledBySpotterPaginator
                 arguments: ["expr:service('security.context').getToken().getUser()"]
+
+app_spot_show:
+    path: /spots/{id}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.spot:showAction
+        _sylius:
+            template: :Spot:show.html.twig

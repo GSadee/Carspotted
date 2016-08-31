@@ -24,6 +24,7 @@
         <service id="app.behat.context.ui.spot" class="Behat\Context\Ui\SpotContext" scope="scenario">
             <argument type="service" id="app.behat.page.spot.index" />
             <argument type="service" id="app.behat.page.spot.index_by_spotter" />
+            <argument type="service" id="app.behat.page.spot.show" />
             <tag name="app.behat.context" />
         </service>
     </services>

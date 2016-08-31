@@ -85,4 +85,7 @@ liip_imagine:
                 thumbnail: { size: [96, 64], mode: outbound }
         app_spot_photo_post:
             filters:
-                thumbnail: { size: [208, 213], mode: outbound }
+                thumbnail: { size: [200, 200], mode: outbound }
+        app_spot_photo_details:
+            filters:
+                thumbnail: { size: [1200, 400], mode: outbound }

@@ -2,9 +2,11 @@
 
 namespace Behat\Context\Ui;
 
+use AppBundle\Entity\SpotInterface;
 use Behat\Context\BaseContext;
 use Behat\Page\Spot\IndexBySpotterPageInterface;
 use Behat\Page\Spot\IndexPageInterface;
+use Behat\Page\Spot\ShowPageInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -23,13 +25,23 @@ final class SpotContext extends BaseContext
     private $indexBySpotterPage;
 
     /**
+     * @var ShowPageInterface
+     */
+    private $showPage;
+
+    /**
      * @param IndexPageInterface $indexPage
      * @param IndexBySpotterPageInterface $indexBySpotterPage
+     * @param ShowPageInterface $showPage
      */
-    public function __construct(IndexPageInterface $indexPage, IndexBySpotterPageInterface $indexBySpotterPage)
-    {
+    public function __construct(
+        IndexPageInterface $indexPage,
+        IndexBySpotterPageInterface $indexBySpotterPage,
+        ShowPageInterface $showPage
+    ) {
         $this->indexPage = $indexPage;
         $this->indexBySpotterPage = $indexBySpotterPage;
+        $this->showPage = $showPage;
     }
 
     /**
@@ -106,6 +118,38 @@ final class SpotContext extends BaseContext
         Assert::false(
             $this->indexBySpotterPage->isSingleResourceOnPage(['car' => $car]),
             sprintf('Spot of car %s has been found.', $car)
+        );
+    }
+
+    /**
+     * @When /^I want to view details of (this spot)$/
+     */
+    public function iWantToViewDetailsOfThisSpot(SpotInterface $spot)
+    {
+        $this->showPage->open(['id' => $spot->getId()]);
+    }
+
+    /**
+     * @Then I should see the car name :car
+     */
+    public function iShouldSeeTheCarName($car)
+    {
+        Assert::same(
+            $car,
+            $this->showPage->getCarName(),
+            'Car name should be %s, but it is %s.'
+        );
+    }
+
+    /**
+     * @Then I should also see the spotter :spotterUsername
+     */
+    public function iShouldAlsoSeeTheSpotter($spotterUsername)
+    {
+        Assert::same(
+            $spotterUsername,
+            $this->showPage->getSpotterUsername(),
+            'This spot should be spotted by %s, but it is by %s.'
         );
     }
 }

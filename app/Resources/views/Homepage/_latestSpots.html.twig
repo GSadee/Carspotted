@@ -7,13 +7,13 @@
         <div id="latest-spots" class="posts">
             {% for spot in spots %}
                 <section class="post">
-                    {% set path = spot.firstPhoto is not null ? spot.firstPhoto.path|imagine_filter('app_spot_photo_post') : 'http://placehold.it/208x213' %}
+                    {% set path = spot.firstPhoto is not null ? spot.firstPhoto.path|imagine_filter('app_spot_photo_post') : 'http://placehold.it/200x200' %}
                     <a href="#" class="image"><img src="{{ path }}" /></a>
                     <div class="content">
                         <h3>{{ spot.make.name }} {{ spot.model.name }}</h3>
                         <h6>{{ spot.spotter.username }}</h6>
                         <p>{{ spot.description }}</p>
-                        <a href="#" class="button">{{ 'app.details'|trans }}</a>
+                        <a href="{{ path('app_spot_show', {'id': spot.id}) }}" class="button">{{ 'app.details'|trans }}</a>
                     </div>
                 </section>
             {% endfor %}
