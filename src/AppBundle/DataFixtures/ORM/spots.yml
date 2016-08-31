@@ -11,7 +11,6 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
-        addPhoto: [@photo_rs6]
 
     spot2:
         description: <sentence()>
@@ -25,7 +24,6 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
-        addPhoto: [@photo_rs7]
 
     spot3:
         description: <sentence()>
@@ -52,7 +50,6 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
-        addPhoto: [@photo_aventador]
 
     spot5:
         description: <sentence()>
@@ -66,4 +63,3 @@ AppBundle\Entity\Spot:
         city: <city()>
         illegiblePlate: false
         enabled: true
-        addPhoto: [@photo_gt86]

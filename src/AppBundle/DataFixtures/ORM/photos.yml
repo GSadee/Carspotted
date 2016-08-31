@@ -1,12 +1,24 @@
 AppBundle\Entity\Photo:
     photo_rs6:
+        spot: @spot1
         path: fixtures/photos/rs6.jpg
 
     photo_rs7:
+        spot: @spot2
         path: fixtures/photos/rs7.jpg
 
+    photo_rs7_2:
+        spot: @spot2
+        path: fixtures/photos/rs7_2.jpg
+
     photo_aventador:
+        spot: @spot4
         path: fixtures/photos/aventador.jpg
 
+    photo_aventador_2:
+        spot: @spot4
+        path: fixtures/photos/aventador_2.jpg
+
     photo_gt86:
+        spot: @spot5
         path: fixtures/photos/gt86.jpg
