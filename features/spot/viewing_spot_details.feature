@@ -10,7 +10,7 @@ Feature: Viewing details of a spot
         And there is also a model "NSX" made by "Honda"
         And this spotter spotted a model "RS7" made by "Audi" which is enabled
 
-    @todo
+    @ui
     Scenario: Viewing a detailed page of a spot
         When I want to view details of this spot
         Then I should see the car name "Audi RS7"

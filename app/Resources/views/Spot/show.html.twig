@@ -1,0 +1,35 @@
+{% extends ':Layout:base.html.twig' %}
+
+{% block title %}Carspotted{% endblock %}
+
+{% block content %}
+    <section id="main" class="wrapper">
+        <div class="inner">
+            <header class="major">
+                <h2 id="spot-title">{{ spot.make.name }} {{ spot.model.name }}</h2>
+                <p id="spot-subtitle">{{ 'app.spotted_by'|trans }} {{ spot.spotter.username }} {{ 'app.at'|trans }} {{ spot.createdAt|date('d-m-Y H:i') }}</p>
+            </header>
+
+            <div class="content">
+                {% set path = spot.firstPhoto is not null ? spot.firstPhoto.path|imagine_filter('app_spot_photo_details') : 'http://placehold.it/1200x400' %}
+                <span class="image fit"><img src="{{ path }}" /></span>
+                <h3>{{ 'app.description'|trans }}</h3>
+                <p>{{ spot.description }}</p>
+                <h3>{{ 'app.information'|trans }}</h3>
+                <ul>
+                    <li><strong>{{ 'app.city'|trans }}:</strong> {{ spot.city }}</li>
+                    <li><strong>{{ 'app.country'|trans }}:</strong> {{ spot.country }}</li>
+                    <li><strong>{{ 'app.latitude'|trans }}:</strong> {{ spot.lat }}</li>
+                    <li><strong>{{ 'app.longitude'|trans }}:</strong> {{ spot.lng }}</li>
+                </ul>
+            </div>
+
+            <h4>{{ 'app.photos'|trans }}</h4>
+            <div class="box alt">
+                {% for photo in spot.photos %}
+                    <span class="image"><img src="{{ photo.path|imagine_filter('app_spot_photo_post') }}" /></span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

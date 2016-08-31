@@ -6,14 +6,18 @@ app:
     add_spot.description: Help us to build a great database of exotic cars from around the world and share your own photos with other spotters. You can add a new spot of an exotic car with its photos.
     administration_panel: Administration panel
     administrator: Administrator
+    at: at
     cancel: Cancel
     car: Car
     carspotted: Carspotted
     carspotted.description: Welcome at website to share photos of exotic cars.
+    city: City
+    country: Country
     create: Create
     created_at: Created at
     dashboard: Dashboard
     delete: Delete
+    description: Description
     details: Details
     edit: Edit
     edit_make: Edit make
@@ -25,9 +29,12 @@ app:
     home: Home
     id: Id
     image: Image
+    information: Information
     last_login: Last login
     latest_spots: Latest spots
     latest_spots.description: Thanks to our community, you can browse the newest exotic cars spotted by other users.
+    latitude: Latitude
+    longitude: Longitude
     log_out: Log out
     logo: Logo
     make: Make
@@ -44,6 +51,7 @@ app:
     new_model: New model
     no_results_to_display: No results to display
     photo: Photo
+    photos: Photos
     recent_spots: Recent spots
     register: Register
     role: Role
@@ -52,6 +60,7 @@ app:
     sign_in: Sign in
     spot: Spot
     spots: Spots
+    spotted_by: spotted by
     spotter: Spotter
     spotters: Spotters
     update: Update
