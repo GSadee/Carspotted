@@ -13,3 +13,8 @@ section#flashes.wrapper > div > div.alert
     margin-top: 2em;
     margin-bottom: 2em;
 }
+
+a.without-decoration
+{
+    text-decoration: none;
+}
