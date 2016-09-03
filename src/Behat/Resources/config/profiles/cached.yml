@@ -1,6 +1,0 @@
-cached:
-    extensions:
-        Behat\Symfony2Extension:
-            kernel:
-                env: test_cached
-                debug: false
