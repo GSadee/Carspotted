@@ -1,0 +1,41 @@
+{{ form_start(form, {'action': path('app_spot_create')}) }}
+    <div class="row uniform 50%">
+        <div class="6u 12u$(xsmall)">
+            {{ form_widget(form.make, {'attr': {'placeholder': 'app.make'|trans}}) }}
+        </div>
+        <div class="6u$ 12u$(xsmall)">
+            {{ form_widget(form.model, {'attr': {'placeholder': 'app.model'|trans}}) }}
+        </div>
+        <div class="6u 12u$(xsmall)">
+            {{ form_widget(form.lat, {'attr': {'placeholder': 'app.latitude'|trans}}) }}
+        </div>
+        <div class="6u$ 12u$(xsmall)">
+            {{ form_widget(form.lng, {'attr': {'placeholder': 'app.longitude'|trans}}) }}
+        </div>
+        <div class="6u 12u$(xsmall)">
+            {{ form_widget(form.country, {'attr': {'placeholder': 'app.country'|trans}}) }}
+        </div>
+        <div class="6u$ 12u$(xsmall)">
+            {{ form_widget(form.city, {'attr': {'placeholder': 'app.city'|trans}}) }}
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <input type="checkbox" name="illegiblePlate">
+            {{ form_label(form.illegiblePlate) }}
+        </div>
+        <div class="6u$ 12u$(xsmall)">
+            {{ form_widget(form.licensePlate, {'attr': {'placeholder': 'app.license_plate'|trans}}) }}
+        </div>
+        <div class="12u$">
+            {{ form_widget(form.description, {'attr': {'placeholder': 'app.description'|trans}}) }}
+        </div>
+        <div class="12u$">
+            {{ form_row(form.photos) }}
+        </div>
+        <div class="12u$">
+            <ul class="actions">
+                <li><input type="submit" value="{{ 'app.create'|trans }}" class="special" /></li>
+            </ul>
+        </div>
+    </div>
+{{ form_row(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}

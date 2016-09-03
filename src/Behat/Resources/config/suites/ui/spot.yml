@@ -12,6 +12,7 @@ default:
                 - app.behat.context.transform.make
                 - app.behat.context.transform.model
                 - app.behat.context.transform.shared_storage
+                - app.behat.context.transform.spot
 
                 - app.behat.context.ui.spot
             filters:

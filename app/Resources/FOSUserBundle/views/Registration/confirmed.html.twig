@@ -7,12 +7,8 @@
 {% block title %}Carspotted{% endblock %}
 
 {% block content %}
-    <section id="main" class="wrapper">
-        <div class="inner">
-            <header class="major">
-                <h2>Registration confirmed</h2>
-                <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-            </header>
-        </div>
-    </section>
+    <header class="major">
+        <h2>Registration confirmed</h2>
+        <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    </header>
 {% endblock %}

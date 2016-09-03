@@ -26,15 +26,19 @@
 
 {{ macros.header(isIndex) }}
 
-{% if disableFlashes is not defined %}
-    {% set disableFlashes = false %}
-{% endif %}
+<section class="wrapper">
+    <div class="inner">
+        {% if disableFlashes is not defined %}
+            {% set disableFlashes = false %}
+        {% endif %}
 
-{% if disableFlashes == false %}
-    {% include ':Layout:_flashes.html.twig' %}
-{% endif %}
+        {% if disableFlashes == false %}
+            {% include ':Layout:_flashes.html.twig' %}
+        {% endif %}
 
-{% block content %}{% endblock %}
+        {% block content %}{% endblock %}
+    </div>
+</section>
 
 {% include ':Layout:_footer.html.twig' %}
 

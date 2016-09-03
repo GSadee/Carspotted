@@ -51,7 +51,7 @@ AppBundle\Entity\Spot:
             targetEntity: AppBundle\Entity\Spotter
             inversedBy: spots
             joinColumn:
-                name: spot_id
+                name: spotter_id
                 referencedColumnName: id
                 onDelete: "CASCADE"
     oneToMany:

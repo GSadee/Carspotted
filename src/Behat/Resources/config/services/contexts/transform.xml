@@ -17,6 +17,13 @@
             <tag name="app.behat.context" />
         </service>
 
+        <service id="app.behat.context.transform.spot" class="Behat\Context\Transform\SpotContext" scope="scenario">
+            <argument type="service" id="app.repository.make" container="symfony" />
+            <argument type="service" id="app.repository.model" container="symfony" />
+            <argument type="service" id="app.repository.spot" container="symfony" />
+            <tag name="app.behat.context" />
+        </service>
+
         <service id="app.behat.context.transform.spotter" class="Behat\Context\Transform\SpotterContext" scope="scenario">
             <argument type="service" id="fos_user.user_manager" container="symfony" />
             <tag name="app.behat.context" />

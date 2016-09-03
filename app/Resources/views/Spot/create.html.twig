@@ -1,11 +1,13 @@
 {% extends ':Layout:base.html.twig' %}
 
+{% form_theme form ':Common/Form:theme.html.twig' %}
+
 {% block title %}Carspotted{% endblock %}
 
 {% block content %}
     <header class="major">
-        <h2>{{ 'app.spots'|trans }}</h2>
+        <h2>{{ 'app.add_new_spot'|trans }}</h2>
     </header>
 
-    {% include ':Spot:_spots.html.twig' %}
+    {% include ':Spot:_form.html.twig' %}
 {% endblock %}

@@ -28,12 +28,14 @@ app:
     disabled: Disabled
     home: Home
     id: Id
+    illegible_plate: Illegible plate
     image: Image
     information: Information
     last_login: Last login
     latest_spots: Latest spots
     latest_spots.description: Thanks to our community, you can browse the newest exotic cars spotted by other users.
     latitude: Latitude
+    license_plate: License plate
     longitude: Longitude
     log_out: Log out
     logo: Logo

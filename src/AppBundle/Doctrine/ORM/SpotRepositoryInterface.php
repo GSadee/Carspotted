@@ -2,6 +2,8 @@
 
 namespace AppBundle\Doctrine\ORM;
 
+use AppBundle\Entity\MakeInterface;
+use AppBundle\Entity\ModelInterface;
 use AppBundle\Entity\SpotterInterface;
 use Pagerfanta\Pagerfanta;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -34,4 +36,10 @@ interface SpotRepositoryInterface extends RepositoryInterface
      * @return array
      */
     public function findLatest($limit = 4);
+
+    /**
+     * @param MakeInterface $make
+     * @param ModelInterface $model
+     */
+    public function findOneByMakeAndModel(MakeInterface $make, ModelInterface $model);
 }
