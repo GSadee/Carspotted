@@ -10,12 +10,15 @@ sylius_resource:
                 model: AppBundle\Entity\Model
                 form:
                     default: AppBundle\Form\Type\ModelType
+        app.photo:
+            classes:
+                model: AppBundle\Entity\Photo
+                form:
+                    default: AppBundle\Form\Type\PhotoType
         app.spot:
             classes:
                 model: AppBundle\Entity\Spot
                 repository: AppBundle\Doctrine\ORM\SpotRepository
-                form:
-                    default: AppBundle\Form\Type\SpotType
         app.spotter:
             classes:
                 model: AppBundle\Entity\Spotter

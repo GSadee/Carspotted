@@ -1,3 +1,4 @@
 imports:
     - { resource: 'services/controller.yml' }
+    - { resource: 'services/form.yml' }
     - { resource: 'services/image.xml' }

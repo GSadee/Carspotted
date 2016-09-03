@@ -2,17 +2,20 @@
 
 namespace spec\AppBundle\Form\Type;
 
+use AppBundle\Form\EventSubscriber\SpotFormSubscriber;
 use AppBundle\Form\Type\SpotType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
 /**
  * @mixin SpotType
@@ -21,9 +24,9 @@ use Symfony\Component\Form\FormTypeInterface;
  */
 final class SpotTypeSpec extends ObjectBehavior
 {
-    function let()
+    function let(SecurityContextInterface $securityContext)
     {
-        $this->beConstructedWith('Spot', []);
+        $this->beConstructedWith('Spot', [], $securityContext);
     }
 
     function it_is_initializable()
@@ -105,6 +108,18 @@ final class SpotTypeSpec extends ObjectBehavior
 
         $builder
             ->add('spotter', EntityType::class, Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
+            ->add('photos', CollectionType::class, Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
+            ->addEventSubscriber(Argument::type(SpotFormSubscriber::class))
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

@@ -1,3 +1,12 @@
-imports:
-    - { resource: 'services/controller.yml' }
-    - { resource: 'services/image.xml' }
+parameters:
+    app.form.type.spot.class: AppBundle\Form\Type\SpotType
+
+services:
+    app.form.type.spot:
+        class: '%app.form.type.spot.class%'
+        arguments:
+            - '%app.model.spot.class%'
+            - []
+            - '@security.context'
+        tags:
+            - { name: form.type, alias: app_spot }
