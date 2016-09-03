@@ -28,7 +28,7 @@ before_script:
 
 script:
    - bin/phpspec run --format=pretty
-   - bin/behat
+   - bin/behat --tags ~@javascript
 
 after_failure:
     - export IMGUR_API_KEY=4907fcd89e761c6b07eeb8292d5a9b2a

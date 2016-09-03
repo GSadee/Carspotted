@@ -35,7 +35,7 @@ class RegisterConfirmationPage extends SymfonyPage implements RegisterConfirmati
     protected function getDefinedElements()
     {
         return array_merge(parent::getDefinedElements(), [
-            'content' => 'section#main',
+            'content' => 'section',
         ]);
     }
 }
