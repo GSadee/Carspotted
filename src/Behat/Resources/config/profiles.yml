@@ -1,3 +1,2 @@
 imports:
     - profiles/default.yml
-    - profiles/cached.yml

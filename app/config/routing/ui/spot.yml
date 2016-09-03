@@ -1,5 +1,5 @@
 app_spot_index:
-    path: /spots
+    path: /
     methods: [GET]
     defaults:
         _controller: app.controller.spot:indexAction
@@ -9,7 +9,7 @@ app_spot_index:
                 method: createEnabledPaginator
 
 app_spot_index_by_spotter:
-    path: /my-spots
+    path: /my
     methods: [GET]
     defaults:
         _controller: app.controller.spot:indexAction
@@ -19,8 +19,18 @@ app_spot_index_by_spotter:
                 method: createEnabledBySpotterPaginator
                 arguments: ["expr:service('security.context').getToken().getUser()"]
 
+app_spot_create:
+    path: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: app.controller.spot:createAction
+        _sylius:
+            template: :Spot:create.html.twig
+            redirect: app_spot_index
+            flash: app.spot.added
+
 app_spot_show:
-    path: /spots/{id}
+    path: /{id}
     methods: [GET]
     defaults:
         _controller: app.controller.spot:showAction

@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Doctrine\ORM;
+use AppBundle\Entity\MakeInterface;
+use AppBundle\Entity\ModelInterface;
 use AppBundle\Entity\SpotterInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
@@ -46,7 +48,6 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
 
         $queryBuilder
             ->where('o.spotter = :spotter')
-            ->andWhere('o.enabled = true')
             ->addOrderBy('o.createdAt', 'DESC')
             ->setParameter('spotter', $spotter)
         ;
@@ -65,6 +66,22 @@ class SpotRepository extends EntityRepository implements SpotRepositoryInterface
             ->setMaxResults($limit)
             ->getQuery()
             ->getResult()
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findOneByMakeAndModel(MakeInterface $make, ModelInterface $model)
+    {
+        return $this->createQueryBuilder('o')
+            ->where('o.make = :make')
+            ->andWhere('o.model = :model')
+            ->addOrderBy('o.createdAt', 'DESC')
+            ->setParameter('make', $make)
+            ->setParameter('model', $model)
+            ->getQuery()
+            ->getSingleResult()
         ;
     }
 }

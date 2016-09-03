@@ -35,7 +35,7 @@ final class SpotterContext implements Context
      * @Given /^there is(?:| also) a (?:spotter|user) "([^"]*)" with an email "([^"]*)" and a password "([^"]*)"$/
      * @Given /^there is(?:| also) a (?:spotter|user) "([^"]*)" with an email "([^"]*)"$/
      */
-    public function thereIsUserWithPassword($username, $email, $password = 'password')
+    public function thereIsUserWithPassword($username, $email, $password = 'resu')
     {
         $this->createSpotter($username, $email, $password, ['ROLE_USER']);
     }

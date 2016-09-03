@@ -1,15 +1,15 @@
 @spot
 Feature: Adding a new spot
-    In order to share new photos of an exotic car with other users
+    In order to share new photos of exotic cars to other users
     As a Spotter
     I want to be able to add a new spot to the website
 
     Background:
-        Given there is a spotter "user" with an email "user@example.com"
+        Given there is a user "user" with an email "user@example.com"
         And there is a model "RS7" made by "Audi"
-        And I am logged in as "user@example.com"
+        And I am logged in as "user"
 
-    @todo
+    @ui @javascript
     Scenario: Adding a new spot with a single photo
         When I want to add a new spot
         And I choose "Audi" as a make
@@ -20,7 +20,6 @@ Feature: Adding a new spot
         And I specify the city as "Lodz"
         And I attach the photo "audi_rs7.jpg"
         And I add it
-        Then I should be on the homepage
-        And I should be notified that it has been successfully added
+        Then I should be notified that it has been successfully added
         And the spot "Audi RS7" should appear in the list of my spots
-        And this spot should have a photo
+        And the spot "Audi" "RS7" should have a photo

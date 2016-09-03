@@ -6,3 +6,4 @@ app_homepage:
 
 app_spot:
     resource: "ui/spot.yml"
+    prefix: /spots
