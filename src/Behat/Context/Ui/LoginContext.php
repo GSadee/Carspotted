@@ -60,6 +60,7 @@ final class LoginContext extends BaseContext
 
     /**
      * @When I sign in
+     * @When I try to sign in
      */
     public function iSignIn()
     {
