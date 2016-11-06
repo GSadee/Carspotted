@@ -6,8 +6,8 @@ Feature: Account registration
 
     @ui
     Scenario: Registering a new account
-        Given I want to register a new account
-        When I specify the username as "Harvey"
+        When I want to register a new account
+        And I specify the username as "Harvey"
         And I specify the email as "specter@example.com"
         And I specify the password as "password"
         And I confirm this password

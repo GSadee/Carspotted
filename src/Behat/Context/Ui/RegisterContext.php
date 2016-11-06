@@ -73,7 +73,7 @@ final class RegisterContext extends BaseContext
     }
 
     /**
-     * @Given I want to register a new account
+     * @When I want to register a new account
      */
     public function iWantToRegisterNewAccount()
     {
